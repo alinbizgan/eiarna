@@ -35,7 +35,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: "POST",
-            url: "/products/itemupdate",
+            url: baseRoot + "products/itemupdate",
             data: {
                 id: id,
                 mods: mods,
@@ -54,11 +54,11 @@ $(document).ready(function(){
                 $('#subtotal').html('$' + data.Order.total).animate({ backgroundColor: "#ff8" }, 100).animate({ backgroundColor: 'transparent'}, 500);
                 $('#quantitybutton').html(data.Order.quantity);
                 if(data.Order.total === 0) {
-                    window.location.replace("/products/clear");
+                    window.location.replace(baseRoot + "products/clear");
                 }
             },
             error: function() {
-                window.location.replace("/products/clear");
+                window.location.replace(baseRoot + "products/clear");
             }
         });
     }

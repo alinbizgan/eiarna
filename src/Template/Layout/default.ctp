@@ -22,7 +22,9 @@
 
 <?php echo $this->fetch('css'); ?>
 <?php echo $this->fetch('script'); ?>
-
+<script>
+	var baseRoot = <?php echo $this->Url->build('/');?>;
+</script>
 </head>
 <body>
 
@@ -39,9 +41,7 @@
                     <li class="nav-item"><?php echo $this->Html->link('Categories', ['controller' => 'categories', 'action' => 'index', '_full' => true], ['class' => 'nav-link']); ?></li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                <?php if($this->request->session()->read('Shop')) : ?>
-                    <a href="<?php echo $this->Url->build('/cart', true); ?>" class="btn btn-secondary btn-sm my-2 my-sm-0""><i class="fa fa-cart-plus"></i> &nbsp; Shopping Cart (<span id="quantitybutton"><?php echo $this->request->session()->read('Shop.Order.quantity'); ?></span>)</a>
-                <?php endif; ?>
+                    <a href="<?php echo $this->Url->build('/cart', true); ?>" class="btn btn-secondary btn-sm my-2 my-sm-0""><i class="fa fa-cart-plus"></i> &nbsp; Shopping Cart (<span id="quantitybutton"><?php echo $this->request->session()->read('Shop.Order.quantity')== NULL ? '0' : $this->request->session()->read('Shop.Order.quantity'); ?></span>)</a>
                 </form>
             </div>
         </div>
