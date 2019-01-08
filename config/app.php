@@ -231,7 +231,7 @@ return [
             //'port' => 'non_standard_port_number',
             'username' => 'root',
             'password' => '',
-            'database' => 'my_app',
+            'database' => 'eiarna',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],

@@ -8,22 +8,23 @@
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
-<link rel="stylesheet" type="text/css" href="/myapp/css/bootstrap.min.css" />
+<?php echo $this->Html->css('bootstrap.min.css'); ?>
 
 <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 
-<link rel="stylesheet" type="text/css" href="/myapp/css/admin.css" />
+<?php echo $this->Html->css('admin.css'); ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 <!-- <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script> -->
 
-<script src="/myapp/js/bootstrap.bundle.min.js"></script>
-<script src="/myapp/js/admin.js"></script>
 
-<link href="/myapp/css/jquery-editable.css" rel="stylesheet"/>
-<script src="/myapp/js/jquery-editable-poshytip.min.js"></script>
+<?php echo $this->Html->script('bootstrap.bundle.min.js'); ?>
+<?php echo $this->Html->script('admin.js'); ?>
+
+<?php echo $this->Html->css('jquery-editable.css'); ?>
+<?php echo $this->Html->script('jquery-editable-poshytip.min.js'); ?>
 
 <?php echo $this->fetch('css'); ?>
 <?php echo $this->fetch('script'); ?>

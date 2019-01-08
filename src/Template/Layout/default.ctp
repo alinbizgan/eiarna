@@ -10,12 +10,16 @@
 <meta property="og:url" content="<?php //echo Router::url( $this->here, true ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/myapp/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/myapp/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="/myapp/css/css.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/myapp/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="/myapp/js/js.js"></script>
+
+
+<?php echo $this->Html->css('bootstrap.min.css'); ?>
+<?php echo $this->Html->css('font-awesome.min.css'); ?>
+<?php echo $this->Html->css('css.css'); ?>
+
+<?php echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'); ?>
+<?php echo $this->Html->script('js.js'); ?>
+<?php echo $this->Html->script('bootstrap.bundle.min.js'); ?>
+
 <?php echo $this->fetch('css'); ?>
 <?php echo $this->fetch('script'); ?>
 
@@ -36,7 +40,7 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                 <?php if($this->request->session()->read('Shop')) : ?>
-                    <a href="/myapp/cart" class="btn btn-secondary btn-sm my-2 my-sm-0""><i class="fa fa-cart-plus"></i> &nbsp; Shopping Cart (<span id="quantitybutton"><?php echo $this->request->session()->read('Shop.Order.quantity'); ?></span>)</a>
+                    <a href="<?php echo $this->Url->build('/cart', true); ?>" class="btn btn-secondary btn-sm my-2 my-sm-0""><i class="fa fa-cart-plus"></i> &nbsp; Shopping Cart (<span id="quantitybutton"><?php echo $this->request->session()->read('Shop.Order.quantity'); ?></span>)</a>
                 <?php endif; ?>
                 </form>
             </div>
