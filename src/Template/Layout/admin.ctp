@@ -78,7 +78,7 @@ $(document).ready(function() {
                         <a href="#" class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
 
                         <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdown05">
-                            <a class="dropdown-item" href="/users/logout"><i class="fa fa-fw fa-power-off"></i> Logout</a>
+                            <a class="dropdown-item" href="<?php echo $this->Url->build('/users/logout', true); ?>"><i class="fa fa-fw fa-power-off"></i> Logout</a>
                         </div>
                     </li>
                 </ul>
