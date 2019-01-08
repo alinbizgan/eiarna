@@ -25,14 +25,12 @@
             echo $this->Form->input('billing_address2');
             echo $this->Form->input('billing_city');
             echo $this->Form->input('billing_zip');
-            echo $this->Form->input('billing_state');
-            echo $this->Form->input('billing_country');
+            echo $this->Form->input('billing_county');
             echo $this->Form->input('shipping_address');
             echo $this->Form->input('shipping_address2');
             echo $this->Form->input('shipping_city');
             echo $this->Form->input('shipping_zip');
-            echo $this->Form->input('shipping_state');
-            echo $this->Form->input('shipping_country');
+            echo $this->Form->input('shipping_county');
             echo $this->Form->input('weight');
             echo $this->Form->input('order_item_count');
             echo $this->Form->input('subtotal');

@@ -31,7 +31,7 @@ class OrdersController extends AppController
 
                 $order = $this->request->data;
 
-                if($order['shipping_state'] == 'CA') {
+                if($order['shipping_county'] == 'CA') {
                     $order['tax'] = sprintf('%01.2f', $shop['Order']['subtotal'] * 0.095);
                     $order['total'] = sprintf('%01.2f', $shop['Order']['subtotal'] + $order['tax']);
                 } else {

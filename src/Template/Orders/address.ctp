@@ -30,11 +30,9 @@
         <br />
         <?php echo $this->Form->input('billing_city', ['class' => 'form-control']); ?>
         <br />
-        <?php echo $this->Form->input('billing_state', ['options' => $this->Site->states(), 'empty' => 'Please Select', 'class' => 'form-control']); ?>
+        <?php echo $this->Form->input('billing_county', ['options' => $this->Site->counties(), 'empty' => 'Please Select', 'class' => 'form-control']); ?>
         <br />
         <?php echo $this->Form->input('billing_zip', ['class' => 'form-control']); ?>
-        <br />
-        <?php echo $this->Form->input('billing_country', ['class' => 'form-control']); ?>
         <br />
         <br />
 
@@ -49,12 +47,9 @@
         <br />
         <?php echo $this->Form->input('shipping_city', ['class' => 'form-control']); ?>
         <br />
-        <?php echo $this->Form->input('shipping_state', ['options' => $this->Site->states(), 'empty' => 'Please Select', 'class' => 'form-control']); ?>
+        <?php echo $this->Form->input('shipping_county', ['options' => $this->Site->counties(), 'empty' => 'Please Select', 'class' => 'form-control']); ?>
         <br />
         <?php echo $this->Form->input('shipping_zip', ['class' => 'form-control']); ?>
-        <br />
-        <?php echo $this->Form->input('shipping_country', ['class' => 'form-control']); ?>
-        <br />
         <br />
 
     </div>

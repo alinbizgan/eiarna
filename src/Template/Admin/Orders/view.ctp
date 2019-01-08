@@ -38,12 +38,8 @@
         <td><?= h($order->billing_zip) ?></td>
     </tr>
     <tr>
-        <th><?= __('Billing State') ?></th>
-        <td><?= h($order->billing_state) ?></td>
-    </tr>
-    <tr>
-        <th><?= __('Billing Country') ?></th>
-        <td><?= h($order->billing_country) ?></td>
+        <th><?= __('Billing County') ?></th>
+        <td><?= h($order->billing_county) ?></td>
     </tr>
     <tr>
         <th><?= __('Shipping Address') ?></th>
@@ -62,12 +58,8 @@
         <td><?= h($order->shipping_zip) ?></td>
     </tr>
     <tr>
-        <th><?= __('Shipping State') ?></th>
-        <td><?= h($order->shipping_state) ?></td>
-    </tr>
-    <tr>
-        <th><?= __('Shipping Country') ?></th>
-        <td><?= h($order->shipping_country) ?></td>
+        <th><?= __('Shipping County') ?></th>
+        <td><?= h($order->shipping_county) ?></td>
     </tr>
     <tr>
         <th><?= __('Shipping Method') ?></th>

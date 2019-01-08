@@ -35,7 +35,7 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
                 <?php echo $shop['Order']['first_name'];?> <?php echo $shop['Order']['last_name'];?><br />
                 <?php echo $shop['Order']['billing_address'];?><br />
                 <?php echo $shop['Order']['billing_address2'];?><br />
-                <?php echo $shop['Order']['billing_city'];?>,  <?php echo $shop['Order']['billing_state'];?> <?php echo $shop['Order']['billing_zip'];?><br />
+                <?php echo $shop['Order']['billing_city'];?>,  <?php echo $shop['Order']['billing_county'];?> <?php echo $shop['Order']['billing_zip'];?><br />
 
             </div>
         </div>
@@ -49,7 +49,7 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
                 <?php echo $shop['Order']['first_name'];?> <?php echo $shop['Order']['last_name'];?><br />
                 <?php echo $shop['Order']['shipping_address'];?><br />
                 <?php echo $shop['Order']['shipping_address2'];?><br />
-                <?php echo $shop['Order']['shipping_city'];?>,  <?php echo $shop['Order']['shipping_state'];?> <?php echo $shop['Order']['shipping_zip'];?><br />
+                <?php echo $shop['Order']['shipping_city'];?>,  <?php echo $shop['Order']['shipping_county'];?> <?php echo $shop['Order']['shipping_zip'];?><br />
             </div>
         </div>
     </div>

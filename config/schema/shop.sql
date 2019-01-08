@@ -11,15 +11,6 @@
 # ************************************************************
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
 # Dump of table categories
 # ------------------------------------------------------------
 
@@ -38,14 +29,12 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 LOCK TABLES `categories` WRITE;
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `description`, `sort`, `active`, `created`, `modified`)
 VALUES
 	(1,'Main','main','Main',100,1,'2013-10-18 11:23:04','2016-04-22 06:20:33'),
 	(2,'Shoes','shoes','Shoes',100,1,'2013-10-23 03:11:57','2016-04-22 06:21:46');
 
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -88,14 +77,12 @@ CREATE TABLE `orders` (
   `billing_address2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `billing_city` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `billing_zip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `billing_state` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `billing_country` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `billing_county` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `shipping_address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `shipping_address2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `shipping_city` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `shipping_zip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `shipping_state` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `shipping_country` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `shipping_county` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `weight` decimal(8,2) unsigned DEFAULT '0.00',
   `order_item_count` int(11) DEFAULT NULL,
   `subtotal` decimal(8,2) DEFAULT NULL,
@@ -148,7 +135,6 @@ CREATE TABLE `productoptions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 LOCK TABLES `productoptions` WRITE;
-/*!40000 ALTER TABLE `productoptions` DISABLE KEYS */;
 
 INSERT INTO `productoptions` (`id`, `product_id`, `name`, `value`, `price`, `weight`, `active`, `views`, `created`, `modified`)
 VALUES
@@ -160,7 +146,6 @@ VALUES
 	(6,15,'md',NULL,14.95,NULL,1,0,'2017-11-28 00:00:00','2017-11-28 00:00:00'),
 	(7,15,'l',NULL,14.95,NULL,1,0,'2017-11-28 00:00:00','2017-11-28 00:00:00');
 
-/*!40000 ALTER TABLE `productoptions` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -190,7 +175,6 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 LOCK TABLES `products` WRITE;
-/*!40000 ALTER TABLE `products` DISABLE KEYS */;
 
 INSERT INTO `products` (`id`, `category_id`, `name`, `slug`, `description`, `image`, `price`, `weight`, `views`, `active`, `created`, `modified`)
 VALUES
@@ -213,7 +197,6 @@ VALUES
 	(17,2,'Forum Aura Snowboard Boots Chocolate','forum-aura-snowboard-boots-chocolate','Had a little work done and now she&apos;s better than ever. The Aura is a perennial favorite that offers style and performance at a great price. For 2008, it received the most significant makeover of all our carryover boots. Its refined court shoe-inspired outer with metal lace hooks is packed with our new 4D-molded tongue, innovative hybrid liner with 3/4 footbed and ankle supports, stabilizing internal cuff, and our rugged high-traction cupsole with self-cleaning tread.<br />Key Features of The Forum Aura Women&apos;s Snowboard Boots: Concentrix Level 1 Liner - Basic yet supportive, this no frills option features a molded EVA footbed, new anatomical PE supports, and adjustable calf straps for enhanced fit Silver Cuff Link - This option has a new custom lace look and provides much of the same comfort and hold as Forum&apos;s Gold Cuff line, except it comes in a stream lined configuration with an internal cage Cup Sole Traditional Lacing System Flex - 4','forum-aura-snowboard-boots-chocolate.jpg',68.95,3.00,0,1,'2017-11-28 00:00:00','2017-11-28 00:00:00'),
 	(18,1,'DC Lear Mittens Blue Radiance/Black','dc-lear-mittens-blue-radiance-black','<br />Key Features of the DC Lear Snowboard Mittens: 10,000mm waterproof poly-insulated mitten with inner finger channels nose wipe Grippy palm Thumb protection Internal pocket','dc-lear-mittens-blue-radiance-black.jpg',29.95,2.00,0,1,'2017-11-28 00:00:00','2017-11-28 00:00:00');
 
-/*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -241,20 +224,9 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
 
 INSERT INTO `users` (`id`, `role`, `first_name`, `last_name`, `phone`, `email`, `password`, `uuid`, `active`, `login_count`, `login_last`, `created`, `modified`)
 VALUES
 	(1,'admin','Admin','Admin','818-111-1111','info@example.com','$2y$10$CgM4vIxsvxgDGR3A0.0tfuFNvBDw8EAVYWPZBV5eusI00qqeaofjm','',1,2,'2017-11-28 09:17:42','2014-12-10 11:19:57','2017-11-28 09:18:15');
 
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

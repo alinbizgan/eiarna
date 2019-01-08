@@ -9,8 +9,8 @@ class SiteHelper extends Helper
 
 ////////////////////////////////////////////////////////////////////////////////
 
-    public function states($id = null) {
-        $states = array(
+    public function counties($id = null) {
+        $counties = array(
             'AL' => 'Alabama',
             'AK' => 'Alaska',
             'AZ' => 'Arizona',
@@ -67,11 +67,11 @@ class SiteHelper extends Helper
             'AP' => 'AP'
         );
         if($id) {
-            if(isset($states[$id])) {
-                return $states[$id];
+            if(isset($counties[$id])) {
+                return $counties[$id];
             }
         } else {
-            return $states;
+            return $counties;
         }
     }
 

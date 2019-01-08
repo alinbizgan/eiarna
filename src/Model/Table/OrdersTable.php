@@ -87,10 +87,7 @@ class OrdersTable extends Table
             ->notEmpty('billing_zip');
 
         $validator
-            ->notEmpty('billing_state');
-
-        $validator
-            ->notEmpty('billing_country');
+            ->notEmpty('billing_county');
 
         $validator
             ->notEmpty('shipping_address');
@@ -105,10 +102,7 @@ class OrdersTable extends Table
             ->notEmpty('shipping_zip');
 
         $validator
-            ->notEmpty('shipping_state');
-
-        $validator
-            ->notEmpty('shipping_country');
+            ->notEmpty('shipping_county');
 
         $validator
             ->decimal('weight')
