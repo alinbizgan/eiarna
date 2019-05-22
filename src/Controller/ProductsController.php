@@ -112,7 +112,7 @@ class ProductsController extends AppController
                 $this->Flash->error('Invalid request');
             } else {
                 $this->Cart->add($id, $quantity, $productoptionId);
-                $this->Flash->success($product->name . ' has been added to the shopping cart');
+                $this->Flash->success($product->name . ' a fost adaugat(a) la cart');
             }
 
             return $this->redirect($this->referer());

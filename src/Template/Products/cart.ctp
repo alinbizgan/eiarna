@@ -1,17 +1,17 @@
 <?php
-$title_for_layout = 'Shopping Cart';
-$description = 'Shopping Cart';
-$keywords = 'Shopping, Cart';
+$title_for_layout = 'Cart cumparaturi';
+$description = 'Cart cumparaturi';
+$keywords = 'Cart';
 $this->set(compact('title_for_layout', 'description', 'keywords'));
 ?>
 
 <?php echo $this->Html->script(['product_cart.js'], ['block' => 'script']); ?>
 
-<h1>Shopping Cart</h1>
+<h1>Cart cumparaturi</h1>
 
 <?php if(empty($shop)) : ?>
 
-Shopping Cart is empty
+Cartul dumneavoastra este gol
 
 <?php else: ?>
 
@@ -21,11 +21,11 @@ Shopping Cart is empty
 
 <div class="row small">
     <div class="col-md-1 col-sm-1 col-12">#</div>
-    <div class="col-md-7 col-sm-4 col-12">ITEM</div>
-    <div class="col-md-1 col-sm-2 col-12">PRICE</div>
-    <div class="col-md-1 col-sm-2 col-12">QUANTITY</div>
+    <div class="col-md-7 col-sm-4 col-12">PRODUS</div>
+    <div class="col-md-1 col-sm-2 col-12">PRET</div>
+    <div class="col-md-1 col-sm-2 col-12">CANTITATE</div>
     <div class="col-md-1 col-sm-2 col-12">SUBTOTAL</div>
-    <div class="col-md-1 col-sm-1 col-12">REMOVE</div>
+    <div class="col-md-1 col-sm-1 col-12">STERGE</div>
 </div>
 <br />
 
@@ -58,9 +58,9 @@ Shopping Cart is empty
 <div class="row">
     <div class="col col-sm-12">
         <div class="pull-right">
-        <?php echo $this->Html->link('<i class="fa fa-ban"></i> &nbsp; Clear Shooping Cart', ['controller' => 'products', 'action' => 'clear'], ['class' => 'btn btn-danger btn-sm', 'escape' => false]); ?>
+        <?php echo $this->Html->link('<i class="fa fa-ban"></i> &nbsp; Goleste cartul', ['controller' => 'products', 'action' => 'clear'], ['class' => 'btn btn-danger btn-sm', 'escape' => false]); ?>
         &nbsp; &nbsp;
-        <?php echo $this->Form->button('<i class="fa fa-calculator"></i> &nbsp; Update', ['class' => 'btn btn-warning btn-sm', 'escape' => false]);?>
+        <?php echo $this->Form->button('<i class="fa fa-calculator"></i> &nbsp; Modifica', ['class' => 'btn btn-warning btn-sm', 'escape' => false]);?>
         <?php echo $this->Form->end(); ?>
         </div>
     </div>
@@ -75,11 +75,11 @@ Shopping Cart is empty
         <br />
         <br />
 
-        <?php echo $this->Html->link('<i class="fa fa-arrow-left"></i> &nbsp; Contine Shopping', ['controller' => 'products', 'action' => 'index', '_ssl' => false], ['class' => 'btn btn-secondary btn-sm', 'escape' => false]); ?>
+        <?php echo $this->Html->link('<i class="fa fa-arrow-left"></i> &nbsp; Continua cumparaturile', ['controller' => 'products', 'action' => 'index', '_ssl' => false], ['class' => 'btn btn-secondary btn-sm', 'escape' => false]); ?>
 
         &nbsp; &nbsp; &nbsp; &nbsp;
 
-        <?php echo $this->Html->link('<i class="fa fa-check"></i> &nbsp; Checkout', ['controller' => 'orders', 'action' => 'address', '_ssl' => false], ['class' => 'btn btn-success btn-sm', 'escape' => false]); ?>
+        <?php echo $this->Html->link('<i class="fa fa-check"></i> &nbsp; Continua', ['controller' => 'orders', 'action' => 'address', '_ssl' => false], ['class' => 'btn btn-success btn-sm', 'escape' => false]); ?>
 
         <br />
         <br />

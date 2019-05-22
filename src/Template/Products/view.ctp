@@ -50,7 +50,7 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
 
             <br />
 
-            <?php echo $this->Form->button('<i class="fa fa-cart-plus"></i> &nbsp; Add to Cart', ['class' => 'btn btn-success btn-sm', 'id' => 'addtocart', 'escape' => false]);?>
+            <?php echo $this->Form->button('<i class="fa fa-cart-plus"></i> &nbsp; Adauga la cart', ['class' => 'btn btn-success btn-sm', 'id' => 'addtocart', 'escape' => false]);?>
             <?php echo $this->Form->end(); ?>
 
             <br />
@@ -60,7 +60,7 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
             <br />
             <br />
 
-            <small>Category: <?php echo $this->Html->link($product->category->name, ['controller' => 'categories',  'action' => 'view', $product->category->slug]); ?></small>
+            <small>Categorie: <?php echo $this->Html->link($product->category->name, ['controller' => 'categories',  'action' => 'view', $product->category->slug]); ?></small>
 
             <br />
             <br />

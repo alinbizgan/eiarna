@@ -1,11 +1,11 @@
 <?php
-$title_for_layout = 'CakePHP 3 Shopping Cart';
-$description = 'CakePHP 3 Shopping Cart';
-$keywords = 'CakePHP 3 Shopping Cart';
+$title_for_layout = 'eIarna magazin online';
+$description = 'eIarna magazin online';
+$keywords = 'eIarna magazin online';
 $this->set(compact('title_for_layout', 'description', 'keywords'));
 ?>
 
-<h1>CakePHP 3 Shopping Cart</h1>
+<h1>eIarna magazin online</h1>
 
 <br />
 <br />

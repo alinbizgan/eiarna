@@ -30,18 +30,18 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark1" style="background-color: #333;">
         <div class="container">
-            <a class="navbar-brand" href="#">CakePHP 3 Shopping Cart</a>
+            <a class="navbar-brand" href="#">eIarna magazin online</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><?php echo $this->Html->link('Home', ['controller' => 'products', 'action' => 'index', '_full' => true], ['class' => 'nav-link']); ?></li>
-                    <li class="nav-item"><?php echo $this->Html->link('Categories', ['controller' => 'categories', 'action' => 'index', '_full' => true], ['class' => 'nav-link']); ?></li>
+                    <li class="nav-item"><?php echo $this->Html->link('Acasa', ['controller' => 'products', 'action' => 'index', '_full' => true], ['class' => 'nav-link']); ?></li>
+                    <li class="nav-item"><?php echo $this->Html->link('Categorii produse', ['controller' => 'categories', 'action' => 'index', '_full' => true], ['class' => 'nav-link']); ?></li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <a href="<?php echo $this->Url->build('/cart', true); ?>" class="btn btn-secondary btn-sm my-2 my-sm-0""><i class="fa fa-cart-plus"></i> &nbsp; Shopping Cart (<span id="quantitybutton"><?php echo $this->request->session()->read('Shop.Order.quantity')== NULL ? '0' : $this->request->session()->read('Shop.Order.quantity'); ?></span>)</a>
+                    <a href="<?php echo $this->Url->build('/cart', true); ?>" class="btn btn-secondary btn-sm my-2 my-sm-0""><i class="fa fa-cart-plus"></i> &nbsp; Cart cumparaturi (<span id="quantitybutton"><?php echo $this->request->session()->read('Shop.Order.quantity')== NULL ? '0' : $this->request->session()->read('Shop.Order.quantity'); ?></span>)</a>
                 </form>
             </div>
         </div>
@@ -57,19 +57,11 @@
         </div>
     </div>
 
-    <div class="red py-1">
-        <div class="container">
-            <div class="whitetext">
-                <small>CakePHP 3 Shopping Cart</small>
-            </div>
-        </div>
-    </div>
-
     <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    CakePHP 3 Shopping Cart
+                    eIarna magazin online
                     <br />
                 </div>
                 <div class="col-sm-4">
