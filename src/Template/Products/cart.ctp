@@ -60,8 +60,6 @@ Cartul dumneavoastra este gol
         <div class="pull-right">
         <?php echo $this->Html->link('<i class="fa fa-ban"></i> &nbsp; Goleste cartul', ['controller' => 'products', 'action' => 'clear'], ['class' => 'btn btn-danger btn-sm', 'escape' => false]); ?>
         &nbsp; &nbsp;
-        <?php echo $this->Form->button('<i class="fa fa-calculator"></i> &nbsp; Modifica', ['class' => 'btn btn-warning btn-sm', 'escape' => false]);?>
-        <?php echo $this->Form->end(); ?>
         </div>
     </div>
 </div>
