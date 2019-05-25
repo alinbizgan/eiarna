@@ -49,4 +49,4 @@
     </ul>
 </nav>
 
-<p><?= $this->Paginator->counter('Pagina {{page}} din {{pages}}, prezentate {{current}} produse dintr-un total de {{count}}, de la {{start}}, pana la {{end}}'); ?></p>
+<p><?= $this->Paginator->counter('Pagina {{page}} din {{pages}}, cu {{current}} rezultat(e) dintr-un total de {{count}}, de la {{start}} pana la {{end}}'); ?></p>
