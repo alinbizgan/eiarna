@@ -40,13 +40,13 @@
 
         ?>
 
-        <?php echo $this->Paginator->first('<< First'); ?>
-        <?php echo $this->Paginator->prev('< Prev'); ?>
+        <?php echo $this->Paginator->first('<< Prima pagina'); ?>
+        <?php echo $this->Paginator->prev('< Pagina anterioara'); ?>
         <?php echo $this->Paginator->numbers(['last' => 1]); ?>
-        <?php echo $this->Paginator->next('Next >'); ?>
-        <?php echo $this->Paginator->last('Last >>'); ?>
+        <?php echo $this->Paginator->next('Pagina urmatoare >'); ?>
+        <?php echo $this->Paginator->last('Ultima pagina >>'); ?>
 
     </ul>
 </nav>
 
-<p><?= $this->Paginator->counter('Page {{page}} of {{pages}}, showing {{current}} records out of {{count}} total, starting on record {{start}}, ending on {{end}}'); ?></p>
+<p><?= $this->Paginator->counter('Pagina {{page}} din {{pages}}, prezentate {{current}} produse dintr-un total de {{count}}, de la {{start}}, pana la {{end}}'); ?></p>
