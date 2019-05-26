@@ -23,7 +23,7 @@ class AppController extends Controller {
                 'action' => 'login',
                 'prefix' => false,
             ],
-            'authError' => 'Did you really think you are allowed to see that?',
+            'authError' => 'Nu sunteti autorizat sa accesati aceasta resursa. Va rugam autentificati-va.',
             'unauthorizedRedirect' => [
                 'controller' => 'Users',
                 'action' => 'login'

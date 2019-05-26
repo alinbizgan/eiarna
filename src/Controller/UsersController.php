@@ -46,11 +46,11 @@ class UsersController extends AppController {
                 }
 
             } else {
-                $this->Flash->error('Username or password is incorrect', 'default', [], 'auth');
+                $this->Flash->error('User sau parola incorecte', 'default', [], 'auth');
             }
         }
-        $title_for_layout = 'Sign in';
-        $description = 'Sign in';
+        $title_for_layout = 'Login';
+        $description = 'Login';
         $keywords = '';
         $this->set(compact('title_for_layout', 'description', 'keywords'));
     }
@@ -59,7 +59,7 @@ class UsersController extends AppController {
 
     public function logout()
     {
-        $this->Flash->success('Good-Bye');
+        $this->Flash->success('La revedere');
         return $this->redirect($this->Auth->logout());
     }
 

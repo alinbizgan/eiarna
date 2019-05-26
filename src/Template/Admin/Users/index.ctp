@@ -72,13 +72,14 @@ $(document).ready(function() {
 
 <h2>Users</h2>
 
-<?php echo $this->element('pagination'); ?>
-
 <table class="table-striped table-bordered table-condensed table-hover">
     <tr>
         <th><?php echo $this->Paginator->sort('id');?></th>
         <th><?php echo $this->Paginator->sort('role');?></th>
-        <th><?php echo $this->Paginator->sort('first_name');?> <?php echo $this->Paginator->sort('last_name');?> / <?php echo $this->Paginator->sort('email');?> / <?php echo $this->Paginator->sort('phone');?></th>
+        <th><?php echo $this->Paginator->sort('first_name');?></th>
+        <th><?php echo $this->Paginator->sort('last_name');?></th>
+        <th><?php echo $this->Paginator->sort('email');?></th>
+        <th><?php echo $this->Paginator->sort('phone');?></th>
         <th><?php echo $this->Paginator->sort('active');?></th>
         <th><?php echo $this->Paginator->sort('last_login');?> / <?php echo $this->Paginator->sort('logins');?></th>
         <th><?php echo $this->Paginator->sort('created');?> / <?php echo $this->Paginator->sort('modified');?></th>
@@ -89,14 +90,18 @@ $(document).ready(function() {
         <td><?php echo h($user->id); ?></td>
         <td><?php echo h($user->role); ?></td>
         <td>
-            <span class="first_name" data-value="<?php echo $user->first_name; ?>" data-pk="<?php echo $user->id; ?>"><?php echo $user->first_name; ?></span>
-            <span class="last_name" data-value="<?php echo $user->last_name; ?>" data-pk="<?php echo $user->id; ?>"><?php echo $user->last_name; ?></span>
-            <br />
-            <span class="email1" data-value="<?php echo $user->email; ?>" data-pk="<?php echo $user->id; ?>"><?php echo $user->email; ?></span>
-            <br />
-            <span class="phone" data-value="<?php echo $user->phone; ?>" data-pk="<?php echo $user->id; ?>"><?php echo $user->phone; ?></span>
+            <span class="first_name" data-value="<?php echo $user->first_name; ?>" data-pk="<?php echo $user->id; ?>"><?php echo $user->first_name; ?></span><br />
         </td>
-        <td><?php echo $this->Html->link($this->Html->image('icon_' . $user->active . '.png'), array('controller' => 'users', 'action' => 'toggle', 'active', $user->id), array('class' => 'toggle', 'escape' => false)); ?></td>
+        <td>
+            <span class="last_name" data-value="<?php echo $user->last_name; ?>" data-pk="<?php echo $user->id; ?>"><?php echo $user->last_name; ?></span><br />
+        </td>
+        <td>    
+            <span class="email1" data-value="<?php echo $user->email; ?>" data-pk="<?php echo $user->id; ?>"><?php echo $user->email; ?></span><br />
+        </td>    
+        <td> 
+            <span class="phone" data-value="<?php echo $user->phone; ?>" data-pk="<?php echo $user->id; ?>"><?php echo $user->phone; ?></span><br />
+        </td>
+        <td><?php echo $this->Html->link($this->Html->image('/img/icon_' . $user->active . '.png'), array('controller' => 'users', 'action' => 'toggle', 'active', $user->id), array('class' => 'toggle', 'escape' => false)); ?></td>
         <td>
             <?php echo h($user->login_last); ?>
             <br />
