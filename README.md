@@ -1,10 +1,6 @@
-# CakePHP 3 Shopping Cart
+# eIarna magazin online
 
 ## Install
-
-```bash
-composer create-project --prefer-dist -s dev andraskende/cakephp-3-shopping-cart myapp
-```
 
 ## Create Mysql Database
 
@@ -19,5 +15,3 @@ mysql -u db_username -p db_password db_name < config/schema/shop.sql
 username: admin
 
 password: admin
-
-Dont forget to change passwords, salt
