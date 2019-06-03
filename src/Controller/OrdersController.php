@@ -8,10 +8,14 @@ class OrdersController extends AppController
 {
 
 ////////////////////////////////////////////////////////////////////////////////
-
+    private $shipping_array;
+    // 0.2 ron
+    private $SHIPPING_COEF = 0.2;
+    
     public function initialize()
     {
         parent::initialize();
+        $this->shipping_array = array("Bucuresti" => 0, "Ilfov" => 0.2);
         $this->loadComponent('Cart');
     }
 
@@ -20,6 +24,7 @@ class OrdersController extends AppController
     public function address()
     {
         $shop = $this->Cart->getcart();
+        print_r($shop);
         if(!$shop['Order']['total']) {
             return $this->redirect('/');
         }
@@ -30,14 +35,17 @@ class OrdersController extends AppController
             if (!$order->errors()) {
 
                 $order = $this->request->data;
-
-                if($order['shipping_county'] == 'CA') {
-                    $order['tax'] = sprintf('%01.2f', $shop['Order']['subtotal'] * 0.095);
-                    $order['total'] = sprintf('%01.2f', $shop['Order']['subtotal'] + $order['tax']);
-                } else {
-                    $order['tax'] = 0;
-                    $order['total'] = $shop['Order']['subtotal'];
-                }
+                $order['tax'] = sprintf('%01.2f', $shop['Order']['subtotal'] * 0.021);
+                
+                $order['total'] = $shop['Order']['subtotal'];
+//                 if($shop['Order']['shipping_method'] == 'quote') {
+                    
+//                     $shippingCounty = $shop['Order']['shipping_county'];
+//                     $order['shipping'] = sprintf('%01.2f', $this->shipping_array[$shippingCounty] * $this->SHIPPING_COEF);
+//                     $order['total'] = sprintf('%01.2f', $shop['Order']['subtotal'] + $order['tax'] + $order['shipping']);
+//                 } else {
+//                     $order['total'] = $shop['Order']['subtotal'];
+//                 }
 
                 $this->request->session()->write('Shop.Order', $order + $shop['Order']);
                 return $this->redirect(['action' => 'review']);
