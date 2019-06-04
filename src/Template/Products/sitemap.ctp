@@ -4,7 +4,7 @@
 </url>
 <?php foreach($products as $product): ?>
 <url>
-    <loc>https://www.domain.com/shop/<?php echo $product->slug; ?></loc>
+    <loc>localhost/eiarna/<?php echo $product->slug; ?></loc>
 </url>
 <?php endforeach; ?>
 </urlset>

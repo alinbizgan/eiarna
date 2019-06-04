@@ -28,9 +28,10 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark1" style="background-color: #333;">
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary";">
         <div class="container">
-            <a class="navbar-brand" href="#">eIarna magazin online</a>
+            <a class="navbar-brand" href="#"><img src="/eiarna/webroot/images/images.png" width="35" height="35" alt=""></a>
+            <a class="navbar-brand" href="/eiarna">eIarna magazin online</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,7 +42,7 @@
                     <li class="nav-item"><?php echo $this->Html->link('Categorii produse', ['controller' => 'categories', 'action' => 'index', '_full' => true], ['class' => 'nav-link']); ?></li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <a href="<?php echo $this->Url->build('/cart', true); ?>" class="btn btn-secondary btn-sm my-2 my-sm-0""><i class="fa fa-cart-plus"></i> &nbsp; Cart cumparaturi (<span id="quantitybutton"><?php echo $this->request->session()->read('Shop.Order.quantity')== NULL ? '0' : $this->request->session()->read('Shop.Order.quantity'); ?></span>)</a>
+                    <a href="<?php echo $this->Url->build('/cart', true); ?>" class="btn btn-outline-light my-2 my-sm-0""><i class="fa fa-cart-plus"></i> &nbsp; Cart cumparaturi (<span id="quantitybutton"><?php echo $this->request->session()->read('Shop.Order.quantity')== NULL ? '0' : $this->request->session()->read('Shop.Order.quantity'); ?></span>)</a>
                 </form>
             </div>
         </div>
