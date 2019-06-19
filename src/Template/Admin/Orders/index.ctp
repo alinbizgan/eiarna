@@ -14,7 +14,7 @@ $(document).ready(function() {
 
 </script>
 
-<h3>Orders</h3>
+<h3>Comenzi</h3>
 
 <?php echo $this->element('pagination'); ?>
 
@@ -22,14 +22,14 @@ $(document).ready(function() {
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('first_name') ?></th>
-            <th><?= $this->Paginator->sort('last_name') ?></th>
-            <th><?= $this->Paginator->sort('email') ?></th>
-            <th><?= $this->Paginator->sort('phone') ?></th>
-            <th><?= $this->Paginator->sort('total') ?></th>
-            <th><?= $this->Paginator->sort('created') ?></th>
-            <th><?= $this->Paginator->sort('note') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th><?= $this->Paginator->sort('first_name', 'Prenume') ?></th>
+            <th><?= $this->Paginator->sort('last_name', 'Nume') ?></th>
+            <th><?= $this->Paginator->sort('email', 'E-mail') ?></th>
+            <th><?= $this->Paginator->sort('phone', 'Telefon') ?></th>
+            <th><?= $this->Paginator->sort('total', 'Total') ?></th>
+            <th><?= $this->Paginator->sort('created', 'Creat') ?></th>
+            <th><?= $this->Paginator->sort('note', 'Comentariu') ?></th>
+            <th class="actions"><?= __('Actiuni') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -44,8 +44,8 @@ $(document).ready(function() {
                 <td><?= h($order->created) ?></td>
                 <td><span class="note" data-value="<?php echo $order->note; ?>" data-pk="<?php echo $order->id; ?>"><?php echo $order->note; ?></span></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $order->id], ['class' => 'btn btn-default btn-xs']); ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $order->id], ['class' => 'btn btn-default btn-xs']); ?>
+                    <?= $this->Html->link(__('Vizualizare'), ['action' => 'view', $order->id], ['class' => 'btn btn-default btn-xs']); ?>
+                    <?= $this->Html->link(__('Modificare'), ['action' => 'edit', $order->id], ['class' => 'btn btn-default btn-xs']); ?>
                 </td>
             </tr>
         <?php endforeach; ?>

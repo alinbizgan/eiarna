@@ -1,4 +1,4 @@
-<h3>Order: <?= h($order->id) ?></h3>
+<h3>Comanda: <?= h($order->id) ?></h3>
 
 <table class="table-striped table-bordered table-condensed table-hover">
     <tr>
@@ -6,107 +6,107 @@
         <td><?= $order->id; ?></td>
     </tr>
     <tr>
-        <th><?= __('First Name') ?></th>
+        <th><?= __('Prenume') ?></th>
         <td><?= h($order->first_name) ?></td>
     </tr>
     <tr>
-        <th><?= __('Last Name') ?></th>
+        <th><?= __('Nume') ?></th>
         <td><?= h($order->last_name) ?></td>
     </tr>
     <tr>
-        <th><?= __('Email') ?></th>
+        <th><?= __('E-mail') ?></th>
         <td><?= h($order->email) ?></td>
     </tr>
     <tr>
-        <th><?= __('Phone') ?></th>
+        <th><?= __('Telefon') ?></th>
         <td><?= h($order->phone) ?></td>
     </tr>
     <tr>
-        <th><?= __('Billing Address') ?></th>
+        <th><?= __('Adresa de Facturare') ?></th>
         <td><?= h($order->billing_address) ?></td>
     </tr>
     <tr>
-        <th><?= __('Billing Address2') ?></th>
+        <th><?= __('Adresa de Facturare 2') ?></th>
         <td><?= h($order->billing_address2) ?></td>
     </tr>
     <tr>
-        <th><?= __('Billing City') ?></th>
+        <th><?= __('Oras de Facuturare') ?></th>
         <td><?= h($order->billing_city) ?></td>
     </tr>
     <tr>
-        <th><?= __('Billing Zip') ?></th>
+        <th><?= __('Cod Postal de Facturare') ?></th>
         <td><?= h($order->billing_zip) ?></td>
     </tr>
     <tr>
-        <th><?= __('Billing County') ?></th>
+        <th><?= __('Judet de Facturare') ?></th>
         <td><?= h($order->billing_county) ?></td>
     </tr>
     <tr>
-        <th><?= __('Shipping Address') ?></th>
+        <th><?= __('Adresa de Livrare') ?></th>
         <td><?= h($order->shipping_address) ?></td>
     </tr>
     <tr>
-        <th><?= __('Shipping Address2') ?></th>
+        <th><?= __('Adresa de Livrare 2') ?></th>
         <td><?= h($order->shipping_address2) ?></td>
     </tr>
     <tr>
-        <th><?= __('Shipping City') ?></th>
+        <th><?= __('Oras de Livrare') ?></th>
         <td><?= h($order->shipping_city) ?></td>
     </tr>
     <tr>
-        <th><?= __('Shipping Zip') ?></th>
+        <th><?= __('Cod Postal de Livrare') ?></th>
         <td><?= h($order->shipping_zip) ?></td>
     </tr>
     <tr>
-        <th><?= __('Shipping County') ?></th>
+        <th><?= __('Judet de Livrare') ?></th>
         <td><?= h($order->shipping_county) ?></td>
     </tr>
     <tr>
-        <th><?= __('Shipping Method') ?></th>
+        <th><?= __('Metoda de Livrare') ?></th>
         <td><?= h($order->shipping_method) ?></td>
     </tr>
     <tr>
-        <th><?= __('Payment Method') ?></th>
+        <th><?= __('Metoda de plata') ?></th>
         <td><?= h($order->payment_method) ?></td>
     </tr>
     <tr>
-        <th><?= __('Creditcard Number') ?></th>
+        <th><?= __('Numar Card de Credit') ?></th>
         <td><?= h($order->creditcard_number) ?></td>
     </tr>
     <tr>
-        <th><?= __('Creditcard Code') ?></th>
+        <th><?= __('Cod CVC') ?></th>
         <td><?= h($order->creditcard_code) ?></td>
     </tr>
     <tr>
-        <th><?= __('Creditcard Year') ?></th>
+        <th><?= __('An expirare Card de Credit') ?></th>
         <td><?= h($order->creditcard_year) ?></td>
     </tr>
     <tr>
-        <th><?= __('Creditcard Month') ?></th>
+        <th><?= __('Luna expirare Card de Credit') ?></th>
         <td><?= h($order->creditcard_month) ?></td>
     </tr>
     <tr>
-        <th><?= __('Authorization') ?></th>
+        <th><?= __('Autorizatie') ?></th>
         <td><?= h($order->authorization) ?></td>
     </tr>
     <tr>
-        <th><?= __('Transaction') ?></th>
+        <th><?= __('Tranzactie') ?></th>
         <td><?= h($order->transaction) ?></td>
     </tr>
     <tr>
-        <th><?= __('Status') ?></th>
+        <th><?= __('Stare') ?></th>
         <td><?= h($order->status) ?></td>
     </tr>
     <tr>
-        <th><?= __('Ip Address') ?></th>
+        <th><?= __('Adresa IP') ?></th>
         <td><?= h($order->ip_address) ?></td>
     </tr>
     <tr>
-        <th><?= __('Weight') ?></th>
+        <th><?= __('Greutate') ?></th>
         <td><?= $order->weight ?></td>
     </tr>
     <tr>
-        <th><?= __('Order Item Count') ?></th>
+        <th><?= __('Numar produse in comanda') ?></th>
         <td><?= $order->order_item_count ?></td>
     </tr>
     <tr>
@@ -114,11 +114,11 @@
         <td><?php echo $order->subtotal; ?></td>
     </tr>
     <tr>
-        <th><?= __('Tax') ?></th>
+        <th><?= __('TVA') ?></th>
         <td><?php echo $order->tax; ?></td>
     </tr>
     <tr>
-        <th><?= __('Shipping') ?></th>
+        <th><?= __('Livrare') ?></th>
         <td><?php echo $order->shipping; ?></td>
     </tr>
     <tr>
@@ -126,11 +126,11 @@
         <td><?php echo $order->total; ?></td>
     </tr>
     <tr>
-        <th><?= __('Comment') ?></th>
+        <th><?= __('Comentariu') ?></th>
         <td><?= $order->comment ?></td>
     </tr>
     <tr>
-        <th><?= __('Note') ?></th>
+        <th><?= __('Nota') ?></th>
         <td><?= $order->note ?></td>
     </tr>
     <tr>
@@ -146,11 +146,11 @@
         <td><?= h($order->request_uri) ?></td>
     </tr>
     <tr>
-        <th><?= __('Created') ?></th>
+        <th><?= __('Creat') ?></th>
         <td><?= h($order->created) ?></td>
     </tr>
     <tr>
-        <th><?= __('Modified') ?></th>
+        <th><?= __('Modificat') ?></th>
         <td><?= h($order->modified) ?></td>
     </tr>
 </table>
@@ -158,32 +158,30 @@
 <br />
 <br />
 
-<h3><?= __('Actions') ?></h3>
-<?= $this->Html->link(__('Edit Order'), ['action' => 'edit', $order->id], ['class' => 'btn btn-default']); ?>
-<br />
-<br />
-<?= $this->Form->postLink(__('Delete Order'), ['action' => 'delete', $order->id], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?>
+<h3><?= __('Actiuni') ?></h3>
+<?= $this->Html->link(__('Modificare Comanda'), ['action' => 'edit', $order->id], ['class' => 'btn btn-default']); ?>
+<?= $this->Form->postLink(__('Stergere Comanda'), ['action' => 'delete', $order->id], ['class' => 'btn btn-danger', 'confirm' => __('Sunteti sigur(a) ca vreti sa stergeti comanda # {0}?', $order->id)]) ?>
 
 <br />
 <br />
 
-<h4><?= __('Related Orderproducts') ?></h4>
+<h4><?= __('Produse in Comanda') ?></h4>
 <?php if (!empty($order->orderproducts)): ?>
     <table class="table-striped table-bordered table-condensed table-hover">
         <tr>
             <th><?= __('Id') ?></th>
-            <th><?= __('Order Id') ?></th>
-            <th><?= __('Product Id') ?></th>
-            <th><?= __('Productoption Id') ?></th>
-            <th><?= __('Name') ?></th>
-            <th><?= __('Productoption Name') ?></th>
-            <th><?= __('Quantity') ?></th>
-            <th><?= __('Weight') ?></th>
-            <th><?= __('Price') ?></th>
+            <th><?= __('Id Comanda') ?></th>
+            <th><?= __('Id Produs') ?></th>
+            <th><?= __('Id Optiune de Produs') ?></th>
+            <th><?= __('Nume Produs') ?></th>
+            <th><?= __('Nume Optiune de Produs') ?></th>
+            <th><?= __('Cantitate') ?></th>
+            <th><?= __('Greutate') ?></th>
+            <th><?= __('Pret') ?></th>
             <th><?= __('Subtotal') ?></th>
-            <th><?= __('Note') ?></th>
-            <th><?= __('Created') ?></th>
-            <th class="actions">Actions</th>
+            <th><?= __('Nota') ?></th>
+            <th><?= __('Creat') ?></th>
+            <th class="actions">Actiuni</th>
         </tr>
         <?php foreach ($order->orderproducts as $orderproducts): ?>
             <tr>
@@ -200,8 +198,8 @@
                 <td><?= h($orderproducts->note) ?></td>
                 <td><?= h($orderproducts->created) ?></td>
                 <td class="actions">
-                    <?php echo $this->Html->link(__('View'), ['controller' => 'Orderproducts', 'action' => 'view', $orderproducts->id], ['class' => 'btn btn-default btn-xs']); ?>
-                    <?php echo $this->Html->link(__('Edit'), ['controller' => 'Orderproducts', 'action' => 'edit', $orderproducts->id], ['class' => 'btn btn-default btn-xs']); ?>
+                    <?php echo $this->Html->link(__('Vizualizare'), ['controller' => 'Orderproducts', 'action' => 'view', $orderproducts->id], ['class' => 'btn btn-default btn-xs']); ?>
+                    <?php echo $this->Html->link(__('Modificare'), ['controller' => 'Orderproducts', 'action' => 'edit', $orderproducts->id], ['class' => 'btn btn-default btn-xs']); ?>
                     <?php // echo $this->Form->postLink(__('Delete'), ['controller' => 'Orderproducts', 'action' => 'delete', $orderproducts->id], ['confirm' => __('Are you sure you want to delete # {0}?', $orderproducts->id)]) ?>
                 </td>
             </tr>

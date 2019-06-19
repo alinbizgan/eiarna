@@ -6,7 +6,7 @@
         <td><?= $this->Number->format($category->id) ?></td>
     </tr>
     <tr>
-        <th><?= __('Name') ?></th>
+        <th><?= __('Nume') ?></th>
         <td><?= h($category->name) ?></td>
     </tr>
     <tr>
@@ -14,59 +14,56 @@
         <td><?= h($category->slug) ?></td>
     </tr>
     <tr>
-        <th><?= __('Description') ?></th>
+        <th><?= __('Descriere') ?></th>
         <td><?= h($category->description) ?></td>
     </tr>
     <tr>
-        <th><?= __('Sort') ?></th>
+        <th><?= __('Indice sortare') ?></th>
         <td><?= $this->Number->format($category->sort) ?></td>
     </tr>
     <tr>
-        <th><?= __('Active') ?></th>
+        <th><?= __('Activ') ?></th>
         <td><?= $this->Number->format($category->active) ?></td>
     </tr>
     <tr>
-        <th><?= __('Created') ?></th>
+        <th><?= __('Creat') ?></th>
         <td><?= h($category->created) ?></td>
     </tr>
     <tr>
-        <th><?= __('Modified') ?></th>
+        <th><?= __('Modificat') ?></th>
         <td><?= h($category->modified) ?></td>
     </tr>
 </table>
 
 <br />
 
-<h3>Actions</h3>
+<h3>Actiuni</h3>
 
-<?= $this->Html->link('Edit Category', ['action' => 'edit', $category->id], ['class' => 'btn btn-default']); ?>
-
-<br />
-<br />
-<?= $this->Form->postLink('Delete Category', ['action' => 'delete', $category->id], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $category->id)]) ?>
+<?= $this->Html->link('Modificare Categorie', ['action' => 'edit', $category->id], ['class' => 'btn btn-default']); ?>
+<?= $this->Form->postLink('Stergere Categorie', ['action' => 'delete', $category->id], ['class' => 'btn btn-danger', 'confirm' => __('Sunteti sigur(a) ca vreti sa stergeti # {0}?', $category->id)]) ?>
 
 <br />
 <br />
 <br />
 <br />
 
-<h4>Related Products</h4>
+<h4>Produse din categorie</h4>
 <?php if (!empty($category->products)): ?>
     <table class="table-striped table-bordered table-condensed table-hover">
         <tr>
             <th><?= __('Id') ?></th>
-            <th><?= __('Category Id') ?></th>
+            <th><?= __('Id Categorie') ?></th>
             <th><?= __('Slug') ?></th>
-            <th><?= __('Name') ?></th>
-            <th><?= __('Description') ?></th>
-            <th><?= __('Image') ?></th>
-            <th><?= __('Price') ?></th>
-            <th><?= __('Weight') ?></th>
-            <th><?= __('Quantity') ?></th>
+            <th><?= __('Nume') ?></th>
+            <th><?= __('Descriere') ?></th>
+            <th><?= __('Imagine') ?></th>
+            <th><?= __('Pret') ?></th>
+            <th><?= __('Greutate') ?></th>
+            <th><?= __('Cantitate') ?></th>
             <th><?= __('Status') ?></th>
-            <th><?= __('Created') ?></th>
-            <th><?= __('Modified') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+            <th><?= __('Creat') ?></th>
+            <th><?= __('Modificat') ?></th>
+            <th class="actions"><?= __('Actiuni') ?></th>
         </tr>
         <?php foreach ($category->products as $products): ?>
             <tr>
@@ -83,11 +80,10 @@
                 <td><?= h($products->created) ?></td>
                 <td><?= h($products->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Products', 'action' => 'view', $products->id], ['class' => 'btn btn-default btn-xs']); ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Products', 'action' => 'edit', $products->id], ['class' => 'btn btn-default btn-xs']); ?>
+                    <?= $this->Html->link(__('Vizualizare'), ['controller' => 'Products', 'action' => 'view', $products->id], ['class' => 'btn btn-default btn-xs']); ?>
+                    <?= $this->Html->link(__('Modificare'), ['controller' => 'Products', 'action' => 'edit', $products->id], ['class' => 'btn btn-default btn-xs']); ?>
                 </td>
             </tr>
         <?php endforeach; ?>
     </table>
 <?php endif; ?>
-

@@ -1,4 +1,4 @@
-<h3>Productoptions</h3>
+<h3>Optiuni de produs</h3>
 
 <?php echo $this->element('pagination'); ?>
 
@@ -6,11 +6,11 @@
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('product_id') ?></th>
-            <th><?= $this->Paginator->sort('name') ?></th>
-            <th><?= $this->Paginator->sort('price') ?></th>
-            <th><?= $this->Paginator->sort('active') ?></th>
-            <th class="actions">Actions</th>
+            <th><?= $this->Paginator->sort('product_id', 'Produs') ?></th>
+            <th><?= $this->Paginator->sort('name', 'Nume') ?></th>
+            <th><?= $this->Paginator->sort('price', 'Pret') ?></th>
+            <th><?= $this->Paginator->sort('active', 'Activ') ?></th>
+            <th class="actions">Actiuni</th>
         </tr>
     </thead>
     <tbody>
@@ -22,8 +22,8 @@
                 <td><?= $this->Number->format($productoption->price) ?></td>
                 <td><?= $this->Number->format($productoption->active) ?></td>
                 <td class="actions">
-                    <?php echo $this->Html->link('View', ['action' => 'view', $productoption->id], ['class' => 'btn btn-default btn-xs']); ?>
-                    <?php echo $this->Html->link('Edit', ['action' => 'edit', $productoption->id], ['class' => 'btn btn-default btn-xs']); ?>
+                    <?php echo $this->Html->link('Vizualizare', ['action' => 'view', $productoption->id], ['class' => 'btn btn-default btn-xs']); ?>
+                    <?php echo $this->Html->link('Modificare', ['action' => 'edit', $productoption->id], ['class' => 'btn btn-default btn-xs']); ?>
                     <?php // echo $this->Form->postLink('Delete', ['action' => 'delete', $productoption->id], ['confirm' => __('Are you sure you want to delete # {0}?', $productoption->id)]) ?>
                 </td>
             </tr>
@@ -38,9 +38,9 @@
 <br />
 <br />
 
-<h3>Actions</h3>
+<h3>Actiuni</h3>
 
-<?php echo $this->Html->link('New', ['action' => 'add'], ['class' => 'btn btn-default']) ?>
+<?php echo $this->Html->link('Optiune de produs noua', ['action' => 'add'], ['class' => 'btn btn-default']) ?>
 
 <br />
 <br />

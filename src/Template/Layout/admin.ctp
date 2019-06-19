@@ -57,15 +57,15 @@ $(document).ready(function() {
             <ul class="navbar-nav mr-auto">
 
 
-                <li class="nav-item"><?php echo $this->Html->link('Users', ['controller' => 'users', 'action' => 'index'], ['class' => 'nav-link']); ?></li>
+                <li class="nav-item"><?php echo $this->Html->link('Useri', ['controller' => 'users', 'action' => 'index'], ['class' => 'nav-link']); ?></li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Magazin</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <?php echo $this->Html->link('Shop Categories', array('controller' => 'categories', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
-                        <?php echo $this->Html->link('Shop Products', array('controller' => 'products', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
-                        <?php echo $this->Html->link('Shop Products Options', array('controller' => 'productoptions', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
-                        <?php echo $this->Html->link('Shop Orders', array('controller' => 'orders', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
+                        <?php echo $this->Html->link('Categorii', array('controller' => 'categories', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
+                        <?php echo $this->Html->link('Produse', array('controller' => 'products', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
+                        <?php echo $this->Html->link('Optiuni produse', array('controller' => 'productoptions', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
+                        <?php echo $this->Html->link('Comenzi', array('controller' => 'orders', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
                     </div>
                 </li>
             </ul>

@@ -6,11 +6,11 @@
         <td><?= $this->Number->format($product->id) ?></td>
     </tr>
     <tr>
-        <th><?= __('Category') ?></th>
+        <th><?= __('Categorie') ?></th>
         <td><?= $product->has('category') ? $this->Html->link($product->category->name, ['controller' => 'Categories', 'action' => 'view', $product->category->id]) : '' ?></td>
     </tr>
     <tr>
-        <th><?= __('Name') ?></th>
+        <th><?= __('Nume') ?></th>
         <td><?= h($product->name) ?></td>
     </tr>
     <tr>
@@ -18,35 +18,35 @@
         <td><?= h($product->slug) ?></td>
     </tr>
     <tr>
-        <th><?= __('Description') ?></th>
+        <th><?= __('Descriere') ?></th>
         <td><?= h($product->description) ?></td>
     </tr>
     <tr>
-        <th><?= __('Image') ?></th>
+        <th><?= __('Cale imagine') ?></th>
         <td><?= h($product->image) ?></td>
     </tr>
     <tr>
-        <th><?= __('Price') ?></th>
+        <th><?= __('Pret') ?></th>
         <td><?= $this->Number->format($product->price) ?></td>
     </tr>
     <tr>
-        <th><?= __('Weight') ?></th>
+        <th><?= __('Greutate') ?></th>
         <td><?= $this->Number->format($product->weight) ?></td>
     </tr>
     <tr>
-        <th><?= __('Quantity') ?></th>
+        <th><?= __('Cantitate') ?></th>
         <td><?= $this->Number->format($product->quantity) ?></td>
     </tr>
     <tr>
-        <th><?= __('Created') ?></th>
+        <th><?= __('Creat') ?></th>
         <td><?= h($product->created) ?></td>
     </tr>
     <tr>
-        <th><?= __('Modified') ?></th>
+        <th><?= __('Modificat') ?></th>
         <td><?= h($product->modified) ?></td>
     </tr>
     <tr>
-        <th><?= __('Active') ?></th>
+        <th><?= __('Activ') ?></th>
         <td><?= $product->active; ?></td>
     </tr>
 </table>
@@ -55,32 +55,28 @@
 <br />
 
 
-<h3>Actions</h3>
+<h3>Actiuni</h3>
 
-<?= $this->Html->link('Edit Product', ['action' => 'edit', $product->id], ['class' => 'btn btn-default']); ?>
-
-<br />
-<br />
-
-<?= $this->Form->postLink('Delete Product', ['action' => 'delete', $product->id], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $product->id)]) ?>
+<?= $this->Html->link('Modificare Produs', ['action' => 'edit', $product->id], ['class' => 'btn btn-default']); ?>
+<?= $this->Form->postLink('Stergere Produs', ['action' => 'delete', $product->id], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $product->id)]) ?>
 
 <br />
 <br />
 
 
-<h4>Related Productoptions</h4>
+<h4>Optiuni de produs</h4>
 
 <?php if (!empty($product->productoptions)): ?>
     <table class="table-striped table-bordered table-condensed table-hover">
         <tr>
             <th><?= __('Id') ?></th>
-            <th><?= __('Product Id') ?></th>
-            <th><?= __('Attribute Id') ?></th>
-            <th><?= __('Name') ?></th>
-            <th><?= __('Price') ?></th>
-            <th><?= __('Price Prefix') ?></th>
-            <th><?= __('Active') ?></th>
-            <th class="actions">Actions</th>
+            <th><?= __('Id Produs') ?></th>
+            <th><?= __('Id Atribut') ?></th>
+            <th><?= __('Nume') ?></th>
+            <th><?= __('Pret') ?></th>
+            <th><?= __('Pret Prefix') ?></th>
+            <th><?= __('Activ') ?></th>
+            <th class="actions">Actiuni</th>
         </tr>
         <?php foreach ($product->productoptions as $productoptions): ?>
             <tr>
@@ -92,9 +88,9 @@
                 <td><?= h($productoptions->price_prefix) ?></td>
                 <td><?= h($productoptions->active) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link('View', ['controller' => 'Productoptions', 'action' => 'view', $productoptions->id], ['class' => 'btn btn-default btn-xs']); ?>
-                    <?= $this->Html->link('Edit', ['controller' => 'Productoptions', 'action' => 'edit', $productoptions->id], ['class' => 'btn btn-default btn-xs']); ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Productoptions', 'action' => 'delete', $productoptions->id], ['confirm' => __('Are you sure you want to delete # {0}?', $productoptions->id)]) ?>
+                    <?= $this->Html->link('Vizualizare', ['controller' => 'Productoptions', 'action' => 'view', $productoptions->id], ['class' => 'btn btn-default btn-xs']); ?>
+                    <?= $this->Html->link('Modificare', ['controller' => 'Productoptions', 'action' => 'edit', $productoptions->id], ['class' => 'btn btn-default btn-xs']); ?>
+                    <?= $this->Form->postLink(__('Stergere'), ['controller' => 'Productoptions', 'action' => 'delete', $productoptions->id], ['confirm' => __('Are you sure you want to delete # {0}?', $productoptions->id)]) ?>
                 </td>
             </tr>
         <?php endforeach; ?>

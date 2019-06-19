@@ -6,39 +6,39 @@
         <td><?php echo h($user->id); ?></td>
     </tr>
     <tr>
-        <td>Role</td>
+        <td>Rol</td>
         <td><?php echo h($user->role); ?></td>
     </tr>
     <tr>
-        <td>First Name</td>
+        <td>Prenume</td>
         <td><?php echo h($user->first_name); ?></td>
     </tr>
     <tr>
-        <td>Last Name</td>
+        <td>Nume</td>
         <td><?php echo h($user->last_name); ?></td>
     </tr>
     <tr>
-        <td>Email</td>
+        <td>E-mail</td>
         <td><?php echo h($user->email); ?></td>
     </tr>
     <tr>
-        <td>Active</td>
+        <td>Activ</td>
         <td><?php echo $this->Html->link($this->Html->image('icon_' . $user->active . '.png'), array('controller' => 'users', 'action' => 'toggle', 'active', $user->id), array('class' => 'toggle', 'escape' => false)); ?></td>
     </tr>
     <tr>
-        <td>Login Count</td>
+        <td>Nr. login</td>
         <td><?php echo h($user->login_count); ?></td>
     </tr>
     <tr>
-        <td>Login Last</td>
+        <td>Ultima logare</td>
         <td><?php echo h($user->login_last); ?></td>
     </tr>
     <tr>
-        <td>Created</td>
+        <td>Creat</td>
         <td><?php echo h($user->created); ?></td>
     </tr>
     <tr>
-        <td>Modified</td>
+        <td>Modificat</td>
         <td><?php echo h($user->modified); ?></td>
     </tr>
 </table>
@@ -46,7 +46,7 @@
 <br />
 <br />
 
-<h3>Logins</h3>
+<h3>Logari</h3>
 
 <table class="table-striped table-bordered table-condensed table-hover">
     <thead>
@@ -82,16 +82,13 @@
 <br />
 <br />
 
-<h3>Actions</h3>
+<h3>Actiuni</h3>
 
 <br />
 
-<?php echo $this->Html->link('Edit User', ['action' => 'edit', $user->id], ['class' => 'btn btn-default']); ?>
+<?php echo $this->Html->link('Modificare user', ['action' => 'edit', $user->id], ['class' => 'btn btn-default']); ?>
 
-<br />
-<br />
-
-<?php echo $this->Form->postLink('Delete User', ['action' => 'delete', $user->id], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $user->id)]); ?>
+<?php echo $this->Form->postLink('Stergere user', ['action' => 'delete', $user->id], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $user->id)]); ?>
 
 <br />
 <br />

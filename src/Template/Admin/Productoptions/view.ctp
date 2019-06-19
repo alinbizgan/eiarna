@@ -6,31 +6,27 @@
         <td><?= $this->Number->format($productoption->id) ?></td>
     </tr>
     <tr>
-        <th>Product</th>
+        <th>Produs</th>
         <td><?= $productoption->has('product') ? $this->Html->link($productoption->product->name, ['controller' => 'Products', 'action' => 'view', $productoption->product->id]) : '' ?></td>
     </tr>
     <tr>
-        <th>Name</th>
+        <th>Nume optiune</th>
         <td><?= h($productoption->name) ?></td>
     </tr>
     <tr>
-        <th>Price</th>
+        <th>Pret optiune</th>
         <td><?= $this->Number->format($productoption->price) ?></td>
     </tr>
     <tr>
-        <th>Active</th>
+        <th>Activ</th>
         <td><?= $this->Number->format($productoption->active) ?></td>
     </tr>
 </table>
 
-<h3>Actions</h3>
+<h3>Actiuni</h3>
 
-<?= $this->Html->link('Edit Productoption', ['action' => 'edit', $productoption->id], ['class' => 'btn btn-default']); ?>
-
-<br />
-<br />
-
-<?= $this->Form->postLink('Delete Productoption', ['action' => 'delete', $productoption->id], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # {0}?', $productoption->id)]) ?>
+<?= $this->Html->link('Modificare Optiune de Produs', ['action' => 'edit', $productoption->id], ['class' => 'btn btn-default']); ?>
+<?= $this->Form->postLink('Stergere Optiune de Produs', ['action' => 'delete', $productoption->id], ['class' => 'btn btn-danger', 'confirm' => __('Sunteti sigur(a) ca doriti sa stergeti optiunea de produs # {0}?', $productoption->id)]) ?>
 
 <br />
 <br />
