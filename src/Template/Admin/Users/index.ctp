@@ -74,16 +74,18 @@ $(document).ready(function() {
 
 <table class="table-striped table-bordered table-condensed table-hover">
     <tr>
-        <th><?php echo $this->Paginator->sort('id');?></th>
-        <th><?php echo $this->Paginator->sort('role');?></th>
-        <th><?php echo $this->Paginator->sort('first_name');?></th>
-        <th><?php echo $this->Paginator->sort('last_name');?></th>
-        <th><?php echo $this->Paginator->sort('email');?></th>
-        <th><?php echo $this->Paginator->sort('phone');?></th>
-        <th><?php echo $this->Paginator->sort('active');?></th>
-        <th><?php echo $this->Paginator->sort('last_login');?> / <?php echo $this->Paginator->sort('logins');?></th>
-        <th><?php echo $this->Paginator->sort('created');?> / <?php echo $this->Paginator->sort('modified');?></th>
-        <th class="actions">Actions</th>
+        <th><?php echo $this->Paginator->sort('id', 'Id');?></th>
+        <th><?php echo $this->Paginator->sort('role', 'Rol');?></th>
+        <th><?php echo $this->Paginator->sort('first_name', 'Prenume');?></th>
+        <th><?php echo $this->Paginator->sort('last_name', 'Nume');?></th>
+        <th><?php echo $this->Paginator->sort('email', 'E-mail');?></th>
+        <th><?php echo $this->Paginator->sort('phone', 'Telefon');?></th>
+        <th><?php echo $this->Paginator->sort('active', 'Activ');?></th>
+        <th><?php echo $this->Paginator->sort('last_login', 'Ultima logare');?></th>
+        <th><?php echo $this->Paginator->sort('logins', 'Nr. logari');?></th>
+        <th><?php echo $this->Paginator->sort('created', 'Creat');?></th>
+        <th><?php echo $this->Paginator->sort('modified', 'Modificat');?></th>
+        <th class="actions">Actiuni</th>
     </tr>
     <?php foreach ($users as $user): ?>
     <tr>
@@ -103,19 +105,21 @@ $(document).ready(function() {
         </td>
         <td><?php echo $this->Html->link($this->Html->image('/img/icon_' . $user->active . '.png'), array('controller' => 'users', 'action' => 'toggle', 'active', $user->id), array('class' => 'toggle', 'escape' => false)); ?></td>
         <td>
-            <?php echo h($user->login_last); ?>
-            <br />
-            <?php echo h($user->login_count); ?>
+            <?php echo h($user->login_last); ?><br />
         </td>
         <td>
-            <?php echo h($user->created); ?>
-            <br />
-            <?php echo h($user->modified); ?>
+            <?php echo h($user->login_count); ?><br />
+        </td>
+        <td>
+            <?php echo h($user->created); ?><br />
+        </td>
+        <td>
+            <?php echo h($user->modified); ?><br />
         </td>
         <td class="actions">
-            <?php echo $this->Html->link('View', array('action' => 'view', $user->id), array('class' => 'btn btn-default btn-xs')); ?>
-            <?php echo $this->Html->link('Change Password', array('action' => 'password', $user->id), array('class' => 'btn btn-default btn-xs')); ?>
-            <?php echo $this->Html->link('Edit', array('action' => 'edit', $user->id), array('class' => 'btn btn-default btn-xs')); ?>
+            <?php echo $this->Html->link('Vizualizare', array('action' => 'view', $user->id), array('class' => 'btn btn-default btn-xs')); ?>
+            <?php echo $this->Html->link('Schimba parola', array('action' => 'password', $user->id), array('class' => 'btn btn-default btn-xs')); ?>
+            <?php echo $this->Html->link('Modifica', array('action' => 'edit', $user->id), array('class' => 'btn btn-default btn-xs')); ?>
         </td>
     </tr>
     <?php endforeach; ?>
@@ -128,9 +132,9 @@ $(document).ready(function() {
 <br />
 <br />
 
-<h3>Actions</h3>
+<h3>Actiuni</h3>
 
-<?php echo $this->Html->link('New User', array('action' => 'add'), array('class' => 'btn btn-default')); ?>
+<?php echo $this->Html->link('Creare user nou', array('action' => 'add'), array('class' => 'btn btn-default')); ?>
 
 <br />
 <br />
