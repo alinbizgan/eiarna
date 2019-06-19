@@ -37,42 +37,42 @@ class OrdersTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->notBlank('first_name', 'First Name is required')
+            ->notBlank('first_name', 'Prenumele este obligatoriu')
             ->add('first_name', [
                 'rule1' => [
                     'rule' => ['minLength', 2],
-                    'message' => 'First Name need to be at least 2 characters long',
+                    'message' => 'Prenumele trebuie sa aiba minim 2 caractere',
                 ],
                 'rule2' => [
                     'rule' => ['maxLength', 20],
-                    'message' => 'First Name need to be maximum 20 characters long',
+                    'message' => 'Prenumele trebuie sa aiba maxim 20 de caractere',
                 ]
             ]);
 
         $validator
-            ->notBlank('last_name', 'Last Name is required')
+            ->notBlank('last_name', 'Numele este obligatoriu')
             ->add('last_name', [
                 'rule1' => [
                     'rule' => ['minLength', 2],
-                    'message' => 'Last Name need to be at least 2 characters long',
+                    'message' => 'Numele trebuie sa aiba minim 2 caractere',
                 ],
                 'rule2' => [
                     'rule' => ['maxLength', 20],
-                    'message' => 'Last Name need to be maximum 20 characters long',
+                    'message' => 'Numele trebuie sa aiba maxim 20 de caractere',
                 ]
             ]);
 
         $validator
-            ->notBlank('email', 'Email is required')
+            ->notBlank('email', 'E-mailul este obligatoriu')
             ->add('email', [
                 'rule1' => [
                     'rule' => 'email',
-                    'message' => 'Please enter valid Email',
+                    'message' => 'Va rugam introduceti un email valid',
                 ],
             ]);
 
         $validator
-            ->notBlank('phone', 'Phone is required');
+            ->notBlank('phone', 'Numarul de telefon este obligatoriu');
 
         $validator
             ->notEmpty('billing_address');
@@ -191,13 +191,13 @@ class OrdersTable extends Table
 
         $validator->add('creditcard_number', 'cc', [
             'rule' => 'cc',
-            'message' => 'Please enter valid Credit Card',
+            'message' => 'Va rugam introduceti un card de credit valid',
             'on' => function ($context) {
                 return $context['data']['payment_method'] === 'credit_card';
             }
         ]);
 
-        $validator->notEmpty('creditcard_number', 'Credit Card is required', function ($context) {
+        $validator->notEmpty('creditcard_number', 'Cardul de credit este obligatoriu', function ($context) {
             return $context['data']['payment_method'] === 'credit_card';
         });
 
@@ -207,7 +207,7 @@ class OrdersTable extends Table
 
         $validator->add('creditcard_code', 'custom', [
             'rule' => ['custom', '/^[0-9]{3,4}$/i'],
-            'message' => 'Please enter valid CSC',
+            'message' => 'Va rugam introduceti un CVC valid',
             'on' => function ($context) {
                 return $context['data']['payment_method'] === 'credit_card';
             }

@@ -9,8 +9,8 @@ class OrdersController extends AppController
 
 ////////////////////////////////////////////////////////////////////////////////
     private $shipping_array;
-    // 0.2 ron
-    private $SHIPPING_COEF = 0.2;
+    // Pretul de baza transportului
+    private $SHIPPING_COEF = 2;
     
     public function initialize()
     {
@@ -50,7 +50,7 @@ class OrdersController extends AppController
                 $this->request->session()->write('Shop.Order', $order + $shop['Order']);
                 return $this->redirect(['action' => 'review']);
             } else {
-                $this->Flash->error('The form could not be saved. Please, try again.');
+                $this->Flash->error('Nu ati completat corect toate datele, va rugam revizuiti');
             }
         } else {
             if(!empty($shop['Order'])) {
@@ -121,7 +121,7 @@ class OrdersController extends AppController
 
                 return $this->redirect(['action' => 'success']);
             } else {
-                $this->Flash->error('The order could not be placed. Please, try again.');
+                $this->Flash->error('Comanda nu a putut fi plasata, va rugam incercati din nou');
             }
         }
         $this->set(compact('order'));

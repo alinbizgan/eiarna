@@ -90,7 +90,7 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
     <div class="col col-sm-12 tr">
         <strong>Detalii Comanda:</strong><br />
         Subtotal: $<?php echo $shop['Order']['subtotal']; ?><br />
-        Sales Tax: $<?php echo $shop['Order']['tax']; ?><br />
+        TVA: $<?php echo $shop['Order']['tax']; ?><br />
         <br />
         <big><strong>Total Comanda: <span class="textred">$<?php echo $shop['Order']['total']; ?></span></strong></big><br />
     </div>
@@ -104,7 +104,7 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
 
 <div class="row">
     <div class="col col-sm-4">
-        <?php echo $this->Form->input('comment', ['label' => 'Add comments about your order', 'rows' => 3, 'class' => 'form-control ccinput']); ?>
+        <?php echo $this->Form->input('comment', ['label' => 'Adaugati detalii despre comanda', 'rows' => 3, 'class' => 'form-control ccinput']); ?>
     </div>
 </div>
 
@@ -138,8 +138,8 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
             'label' => false,
             'class' => 'form-control ccinput',
             'options' => [
-            'credit_card' => 'Credit Card',
-            'cod' => 'Cash on Delivery',
+            'credit_card' => 'Card de credit',
+            'cod' => 'Ramburs la curier',
             ]
         ]); ?>
     </div>

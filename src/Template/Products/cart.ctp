@@ -45,9 +45,9 @@ Cartul dumneavoastra este gol
             <small><?php echo $item['productoption_name']; ?></small>
             <?php endif; ?>
         </div>
-        <div class="col-md-1 col-sm-2 col-12" id="price-<?php echo $key; ?>">$<?php echo $item['price']; ?></div>
+        <div class="col-md-1 col-sm-2 col-12" id="price-<?php echo $key; ?>"><?php echo $item['price']; ?> RON</div>
         <div class="col-md-1 col-sm-2 col-3"><?php echo $this->Form->input('quantity-' . $key, ['label' => false, 'div' => false, 'class' => 'numeric form-control input-small', 'type' => 'tel', 'size'=> 2, 'min' => 1, 'max' => 99, 'maxlength' => 2, 'tabindex' => $tabindex++, 'data-id' => $item['product_id'], 'data-mods' => $mods, 'value' => $item['quantity']]); ?></div>
-        <div class="col-md-1 col-sm-2 col-12" id="subtotal-<?php echo $key; ?>">$<?php echo $item['subtotal']; ?></div>
+        <div class="col-md-1 col-sm-2 col-12" id="subtotal-<?php echo $key; ?>"><?php echo $item['subtotal']; ?> RON</div>
         <div class="col-md-1 col-sm-1 col-12"><?php echo $this->Html->link('<i class="fa fa-trash"></i>', ['controller' => 'products', 'action' => 'remove', $key], ['class' => 'btn btn-secondary btn-sm', 'escape' => false]); ?></div>
     </div>
     <br />
@@ -69,7 +69,7 @@ Cartul dumneavoastra este gol
 <div class="row">
     <div class="col col-sm-12 pull-right tr">
 
-        Subtotal: <span class="nor1mal" id="subtotal">$<?php echo $shop['Order']['subtotal']; ?></span>
+        Subtotal: <span class="nor1mal" id="subtotal"><?php echo $shop['Order']['subtotal']; ?> RON</span>
         <br />
         <br />
 
