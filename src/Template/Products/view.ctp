@@ -42,7 +42,7 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
 
             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
-            <strong><span itemprop="priceCurrency" id="pricecurrency" content="USD">$</span><span id="price" itemprop="price" content="<?php echo number_format($product->price, 2); ?>"><?php echo number_format($product->price, 2); ?></span></strong>
+            <strong><span itemprop="priceCurrency" id="pricecurrency" content="USD"></span><span id="price" itemprop="price" content="<?php echo number_format($product->price, 2); ?>"><?php echo number_format($product->price, 2); ?> RON</span></strong>
 
             <link itemprop="availability" href="http://schema.org/InStock" />
 

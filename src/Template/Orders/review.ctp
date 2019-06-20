@@ -78,9 +78,9 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
     <small><?php echo $item['productoption_name']; ?></small>
     <?php endif; ?>
     </div>
-    <div class="col col-sm-1">$<?php echo $item['price']; ?></div>
+    <div class="col col-sm-1"><?php echo $item['price']; ?> RON</div>
     <div class="col col-sm-1" style="text-align: right;"><?php echo $item['quantity']; ?></div>
-    <div class="col col-sm-1" style="text-align: right;">$<?php echo $item['subtotal']; ?></div>
+    <div class="col col-sm-1" style="text-align: right;"><?php echo $item['subtotal']; ?> RON</div>
 </div>
 <?php endforeach; ?>
 
@@ -89,10 +89,10 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
 <div class="row">
     <div class="col col-sm-12 tr">
         <strong>Detalii Comanda:</strong><br />
-        Subtotal: $<?php echo $shop['Order']['subtotal']; ?><br />
-        TVA: $<?php echo $shop['Order']['tax']; ?><br />
+        Subtotal: <?php echo $shop['Order']['subtotal']; ?> RON<br />
+        TVA: <?php echo $shop['Order']['tax']; ?> RON<br />
         <br />
-        <big><strong>Total Comanda: <span class="textred">$<?php echo $shop['Order']['total']; ?></span></strong></big><br />
+        <big><strong>Total Comanda: <span class="textred"><?php echo $shop['Order']['total']; ?> RON</span></strong></big><br />
     </div>
 </div>
 
