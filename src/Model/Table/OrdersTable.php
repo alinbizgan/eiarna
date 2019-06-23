@@ -78,9 +78,6 @@ class OrdersTable extends Table
             ->notEmpty('billing_address');
 
         $validator
-            ->notEmpty('billing_address2');
-
-        $validator
             ->notEmpty('billing_city');
 
         $validator
@@ -91,9 +88,6 @@ class OrdersTable extends Table
 
         $validator
             ->notEmpty('shipping_address');
-
-        $validator
-            ->notEmpty('shipping_address2');
 
         $validator
             ->notEmpty('shipping_city');

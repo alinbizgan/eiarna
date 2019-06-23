@@ -7,7 +7,16 @@
 <?php echo $this->Form->create($order); ?>
 
 <hr>
-
+<div class="row">
+	<div class="col col-sm-4">
+		<?php 
+		echo $this->Form->input('shipping_method', ['label' => 'Alegeti metoda de livrare', 'class' => 'form-control', 'id' => 'shipping_method',
+                'options' => ['quote' => 'Livrare la adresa', 'pickup' => 'Ridica comanda din magazin']
+            ]); 
+		 ?>
+	</div>
+</div>
+<br/>
 <div class="row">
     <div class="col col-sm-4">
 
@@ -26,7 +35,7 @@
 
         <?php echo $this->Form->input('billing_address', ['class' => 'form-control', 'label' => ('Adresa facturare')]); ?>
         <br />
-        <?php echo $this->Form->input('billing_address2', ['class' => 'form-control', 'label' => ('Adresa facturare 2')]); ?>
+        <?php echo $this->Form->input('billing_address2', ['required' => '','class' => 'form-control', 'label' => ('Adresa facturare 2')]); ?>
         <br />
         <?php echo $this->Form->input('billing_city', ['class' => 'form-control', 'label' => ('Oras facturare')]); ?>
         <br />
@@ -36,14 +45,14 @@
         <br />
         <br />
 
-        <?php echo $this->Form->input('sameaddress', ['type' => 'checkbox', 'label' => 'Copiaza adresa de facturare la livrare']); ?>
+        <?php echo $this->Form->input('sameaddress', ['id' => 'sameaddress', 'type' => 'checkbox', 'label' => 'Copiaza adresa de facturare la livrare']); ?>
 
     </div>
-    <div class="col col-sm-4">
+    <div class="col col-sm-4" id="shipping_address_column">
 
         <?php echo $this->Form->input('shipping_address', ['class' => 'form-control', 'label' => ('Adresa livrare')]); ?>
         <br />
-        <?php echo $this->Form->input('shipping_address2', ['class' => 'form-control', 'label' => ('Adresa livrare 2')]); ?>
+        <?php echo $this->Form->input('shipping_address2', ['required' => '','class' => 'form-control', 'label' => ('Adresa livrare 2')]); ?>
         <br />
         <?php echo $this->Form->input('shipping_city', ['class' => 'form-control', 'label' => ('Oras livrare')]); ?>
         <br />
