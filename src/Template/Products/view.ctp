@@ -56,20 +56,15 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
             <br />
 
             <span itemprop="description"><?php echo $product->description; ?></span>
-
             <br />
-            <br />
-
+    
             <small>Categorie: <?php echo $this->Html->link($product->category->name, ['controller' => 'categories',  'action' => 'view', $product->category->slug]); ?></small>
+			<br />
+			
+		    <small>Greutate: <?php echo $product->weight; ?> kg</small>
 
             <br />
             <br />
-
-            <small><?php echo $product->name; ?></small>
-
-            <br />
-            <br />
-
         </div>
     </div>
 

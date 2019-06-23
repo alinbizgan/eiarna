@@ -70,30 +70,6 @@
         <td><?= h($order->payment_method) ?></td>
     </tr>
     <tr>
-        <th><?= __('Numar Card de Credit') ?></th>
-        <td><?= h($order->creditcard_number) ?></td>
-    </tr>
-    <tr>
-        <th><?= __('Cod CVC') ?></th>
-        <td><?= h($order->creditcard_code) ?></td>
-    </tr>
-    <tr>
-        <th><?= __('An expirare Card de Credit') ?></th>
-        <td><?= h($order->creditcard_year) ?></td>
-    </tr>
-    <tr>
-        <th><?= __('Luna expirare Card de Credit') ?></th>
-        <td><?= h($order->creditcard_month) ?></td>
-    </tr>
-    <tr>
-        <th><?= __('Autorizatie') ?></th>
-        <td><?= h($order->authorization) ?></td>
-    </tr>
-    <tr>
-        <th><?= __('Tranzactie') ?></th>
-        <td><?= h($order->transaction) ?></td>
-    </tr>
-    <tr>
         <th><?= __('Stare') ?></th>
         <td><?= h($order->status) ?></td>
     </tr>
@@ -134,18 +110,6 @@
         <td><?= $order->note ?></td>
     </tr>
     <tr>
-        <th><?= __('Referer_Cookie') ?></th>
-        <td><?= h($order->referer_cookie) ?></td>
-    </tr>
-    <tr>
-        <th><?= __('Referer_Session') ?></th>
-        <td><?= h($order->referer_session) ?></td>
-    </tr>
-    <tr>
-        <th><?= __('Request_Uri') ?></th>
-        <td><?= h($order->request_uri) ?></td>
-    </tr>
-    <tr>
         <th><?= __('Creat') ?></th>
         <td><?= h($order->created) ?></td>
     </tr>
@@ -160,7 +124,7 @@
 
 <h3><?= __('Actiuni') ?></h3>
 <?= $this->Html->link(__('Modificare Comanda'), ['action' => 'edit', $order->id], ['class' => 'btn btn-default']); ?>
-<?= $this->Form->postLink(__('Stergere Comanda'), ['action' => 'delete', $order->id], ['class' => 'btn btn-danger', 'confirm' => __('Sunteti sigur(a) ca vreti sa stergeti comanda # {0}?', $order->id)]) ?>
+    <?= $this->Form->postLink(__('Stergere Comanda'), ['action' => 'delete', $order->id], ['class' => 'btn btn-danger', 'confirm' => __('Sunteti sigur(a) ca vreti sa stergeti comanda # {0}?', $order->id)]) ?>
 
 <br />
 <br />

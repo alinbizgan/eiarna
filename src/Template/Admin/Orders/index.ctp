@@ -40,7 +40,7 @@ $(document).ready(function() {
                 <td><?= h($order->last_name) ?></td>
                 <td><?= h($order->email) ?></td>
                 <td><?= h($order->phone) ?></td>
-                <td>$<?= h($order->total) ?></td>
+                <td><?= h($order->total) ?> RON</td>
                 <td><?= h($order->created) ?></td>
                 <td><span class="note" data-value="<?php echo $order->note; ?>" data-pk="<?php echo $order->id; ?>"><?php echo $order->note; ?></span></td>
                 <td class="actions">
