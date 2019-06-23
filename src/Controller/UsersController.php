@@ -12,9 +12,6 @@ class UsersController extends AppController {
 
     public function login()
     {
-        // $passwordHasher = new DefaultPasswordHasher();
-        // echo $passwordHasher->hash('admin');
-        // $this->loadComponent('Auth');
 
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();

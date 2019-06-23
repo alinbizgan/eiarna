@@ -46,7 +46,7 @@ $(document).ready(function() {
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="background-color: #000000 !important;">
 
-        <a class="navbar-brand" href="#"> ADMIN // </a>
+        <a class="navbar-brand" href="#"> ADMIN eIarna </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -75,7 +75,7 @@ $(document).ready(function() {
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
  
-                        <a href="#" class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown"><?php echo h($user->last_name)?><i class="fa fa-cog"></i></a>
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown"><?php echo $authuser['last_name'].' '.$authuser['first_name']?><i class="fa fa-cog"></i></a>
 
                         <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdown05">
                             <a class="dropdown-item" href="<?php echo $this->Url->build('/users/logout', true); ?>"><i class="fa fa-fw fa-power-off"></i> Logout</a>

@@ -61,7 +61,7 @@ class AppController extends Controller {
 
         $authuser = $this->Auth->user();
         $this->set(compact('authuser'));
-
+        
         if(isset($this->request->params['prefix']) && ($this->request->params['prefix'] == 'admin')) {
             $this->viewBuilder()->layout('admin');
         } elseif(isset($this->request->params['prefix']) && ($this->request->params['prefix'] == 'user')) {
