@@ -1,6 +1,6 @@
 <h2>User</h2>
 
-<table class="table-striped table-bordered table-condensed table-hover">
+<table class="table-striped table-bordered table-condensed table-hover table-sm">
     <tr>
         <td>Id</td>
         <td><?php echo h($user->id); ?></td>

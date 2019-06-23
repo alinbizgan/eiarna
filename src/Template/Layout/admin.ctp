@@ -74,8 +74,8 @@ $(document).ready(function() {
 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
-
-                        <a href="#" class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
+ 
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown"><?php echo h($user->last_name)?><i class="fa fa-cog"></i></a>
 
                         <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdown05">
                             <a class="dropdown-item" href="<?php echo $this->Url->build('/users/logout', true); ?>"><i class="fa fa-fw fa-power-off"></i> Logout</a>

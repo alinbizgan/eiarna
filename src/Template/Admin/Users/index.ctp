@@ -72,7 +72,7 @@ $(document).ready(function() {
 
 <h2>Users</h2>
 
-<table class="table-striped table-bordered table-condensed table-hover">
+<table class="table-striped table-bordered table-condensed table-hover table-sm">
     <tr>
         <th><?php echo $this->Paginator->sort('id', 'Id');?></th>
         <th><?php echo $this->Paginator->sort('role', 'Rol');?></th>
