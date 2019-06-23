@@ -7,7 +7,7 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
 
 <?php echo $this->Html->script(['jquery.validate.js', 'additional-methods.js', 'order_review.js'], ['block' => 'script']); ?>
 
-<h1>Revizuieste si plaseaza comanda</h1>
+<h1>Plasare comanda - Revizuieste si plaseaza comanda</h1>
 
 <hr>
 

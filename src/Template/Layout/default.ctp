@@ -28,10 +28,10 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-primary";">
+	<nav class="navbar navbar-expand-md navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="/eiarna/webroot/images/images.png" width="35" height="35" alt=""></a>
-            <a class="navbar-brand" href="/eiarna">eIarna magazin online</a>
+			<a class="navbar-brand" href="/eiarna"><img src="/eiarna/webroot/images/images.png" width="35" height="35" alt=""> eIarna magazin</a>
+            <?php if (!isset($isLogin)) { ?>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -45,9 +45,9 @@
                     <a href="<?php echo $this->Url->build('/cart', true); ?>" class="btn btn-outline-light my-2 my-sm-0""><i class="fa fa-cart-plus"></i> &nbsp; Cart cumparaturi (<span id="quantitybutton"><?php echo $this->request->session()->read('Shop.Order.quantity')== NULL ? '0' : $this->request->session()->read('Shop.Order.quantity'); ?></span>)</a>
                 </form>
             </div>
+            <?php }?>
         </div>
     </nav>
-
     <div class="main">
         <div class="container">
             <?= $this->Flash->render(); ?>

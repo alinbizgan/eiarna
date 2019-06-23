@@ -2,7 +2,7 @@
 
 <?php echo $this->Html->script(['order_address.js'], ['block' => 'script']); ?>
 
-<h1>Address</h1>
+<h1>Plasare comanda - Detalii facturare si livrare</h1>
 
 <?php echo $this->Form->create($order); ?>
 

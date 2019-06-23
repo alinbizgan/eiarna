@@ -1,10 +1,10 @@
-<h1>Thank You for Your Order !</h1>
+<h1>Va multumumim pentru comanda !</h1>
 
 <br />
 <br />
 
 <pre>
-    <?php // print_r($shop); ?>
+    <?php print_r($shop); ?>
 </pre>
 
 <br />
