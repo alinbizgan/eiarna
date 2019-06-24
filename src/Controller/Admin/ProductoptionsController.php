@@ -17,14 +17,6 @@ class ProductoptionsController extends AppController
         foreach($productoptions as $productoption) {
             echo $productoption->name;
 
-            // preg_match('/Laminated Board Decking|Particle Board Decking|Wire Mesh Decking|Corrugated Bin|Plastic Bin|Laminated Top|Wood Top/', $productoption->name, $matches);
-            // if(!empty($matches[0])) {
-            //     // print_r($matches[0]);
-            //     echo ' == ' . $matches[0];
-            //     $productoption->short = $matches[0];
-            //     $this->Productoptions->save($productoption);
-            // }
-
             preg_match('/[0-9]{0,5},[0-9]{1,5} Lbs|[0-9]{1,6} Lbs/', $productoption->name, $matches);
             if(!empty($matches[0])) {
                 // print_r($matches[0]);
@@ -73,10 +65,10 @@ class ProductoptionsController extends AppController
         if ($this->request->is('post')) {
             $productoption = $this->Productoptions->patchEntity($productoption, $this->request->data);
             if ($this->Productoptions->save($productoption)) {
-                $this->Flash->success('The productoption has been saved.');
+                $this->Flash->success('Optiunea de produs a fost salvata');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error('The productoption could not be saved. Please, try again.');
+                $this->Flash->error('Optiunea de produs nu a putut fi salvata. Va rugam incercati din nou');
             }
         }
         $products = $this->Productoptions->Products->find('list', ['limit' => 200]);
@@ -94,10 +86,10 @@ class ProductoptionsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $productoption = $this->Productoptions->patchEntity($productoption, $this->request->data);
             if ($this->Productoptions->save($productoption)) {
-                $this->Flash->success('The productoption has been saved.');
+                $this->Flash->success('Optiunea de produs a fost salvata.');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error('The productoption could not be saved. Please, try again.');
+                $this->Flash->error('Optiunea de produs nu a putut fi salvata. Va rugam incercati din nou.');
             }
         }
         $products = $this->Productoptions->Products->find('list', ['limit' => 200]);
@@ -112,9 +104,9 @@ class ProductoptionsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $productoption = $this->Productoptions->get($id);
         if ($this->Productoptions->delete($productoption)) {
-            $this->Flash->success('The productoption has been deleted.');
+            $this->Flash->success('Optiunea de produs a fost stearsa.');
         } else {
-            $this->Flash->error('The productoption could not be deleted. Please, try again.');
+            $this->Flash->error('Optiunea de produs nu a putut fi stearsa. Va rugam incercati din nou.');
         }
         return $this->redirect(['action' => 'index']);
     }
