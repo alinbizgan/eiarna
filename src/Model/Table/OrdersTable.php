@@ -125,50 +125,11 @@ class OrdersTable extends Table
         $validator
             ->allowEmpty('order_type');
 
-        // $validator
-        //     ->allowEmpty('creditcard_number');
-
-        // $validator->notEmpty('creditcard_number', 'This field is required', function ($context) {
-        //     return $context['data']['payment_method'] === 'credit_card';
-        // });
-        // $validator->allowEmpty('creditcard_number', function ($context) {
-        //     return isset($context['data']['payment_method']) && ($context['data']['payment_method'] != 'credit_card');
-        // });
-
-        // $validator
-        //     ->add('creditcard_number', [
-        //         'cc' => [
-        //             'rule' => 'cc',
-        //             'message' => 'Please enter valid Credit Card',
-        //             'on' => function ($context) {
-        //                 return $context['data']['payment_method'] == 'credit_card';
-        //             }
-        //         ],
-        //     ]);
-
-
-        // $validator->add('creditcard_number', 'cc', [
-        //     'rule' => 'cc',
-        //     'message' => 'Please enter valid Credit Card',
-        //     'on' => function ($context) {
-        //         return ($context['data']['payment_method'] == 'credit_card');
-        //     }
-        // ]);
-
-        $validator
-            ->allowEmpty('authorization');
-
-        $validator
-            ->allowEmpty('transaction');
-
         $validator
             ->allowEmpty('status');
 
         $validator
             ->allowEmpty('ip_address');
-
-        $validator
-            ->allowEmpty('referer_cookie');
 
         return $validator;
     }
@@ -179,56 +140,9 @@ class OrdersTable extends Table
     {
         $validator = $this->validationDefault($validator);
 
-        $validator->allowEmpty('creditcard_number', function ($context) {
-            return $context['data']['payment_method'] === 'cod';
-        });
-
-        $validator->add('creditcard_number', 'cc', [
-            'rule' => 'cc',
-            'message' => 'Va rugam introduceti un card de credit valid',
-            'on' => function ($context) {
-                return $context['data']['payment_method'] === 'credit_card';
-            }
-        ]);
-
-        $validator->notEmpty('creditcard_number', 'Cardul de credit este obligatoriu', function ($context) {
-            return $context['data']['payment_method'] === 'credit_card';
-        });
-
-        $validator->allowEmpty('creditcard_code', function ($context) {
-            return $context['data']['payment_method'] === 'cod';
-        });
-
-        $validator->add('creditcard_code', 'custom', [
-            'rule' => ['custom', '/^[0-9]{3,4}$/i'],
-            'message' => 'Va rugam introduceti un CVC valid',
-            'on' => function ($context) {
-                return $context['data']['payment_method'] === 'credit_card';
-            }
-        ]);
-
-        $validator->notEmpty('creditcard_code', 'CSC is required', function ($context) {
-            return $context['data']['payment_method'] === 'credit_card';
-        });
-
-        $validator->notEmpty('creditcard_month', 'Month is required', function ($context) {
-            return $context['data']['payment_method'] === 'credit_card';
-        });
-
-        $validator->notEmpty('creditcard_year', 'Year is required', function ($context) {
-            return $context['data']['payment_method'] === 'credit_card';
-        });
 
         return $validator;
     }
-
-////////////////////////////////////////////////////////////////////////////////
-
-    // public function buildRules(RulesChecker $rules)
-    // {
-    //     $rules->add($rules->isUnique(['email']));
-    //     return $rules;
-    // }
 
 ////////////////////////////////////////////////////////////////////////////////
 

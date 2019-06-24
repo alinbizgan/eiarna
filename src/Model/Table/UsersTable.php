@@ -29,51 +29,51 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create')
             // ->allowEmpty('role')
             // ->allowEmpty('first_name')
-            ->notBlank('first_name', 'First Name is required')
+            ->notBlank('first_name', 'Preumele este obligatoriu')
             ->add('first_name', [
                 'rule1' => [
                     'rule' => ['minLength', 2],
-                    'message' => 'First Name need to be at least 2 characters long',
+                    'message' => 'Preumele trebuie sa aibe minim 2 caractere',
                 ],
                 'rule2' => [
                     'rule' => ['maxLength', 20],
-                    'message' => 'First Name need to be maximum 20 characters long',
+                    'message' => 'Preumele trebuie sa aibe maxim 20 de caractere',
                 ]
             ])
-            ->notBlank('last_name', 'Last Name is required')
+            ->notBlank('last_name', 'Numele este obligatoriu')
             ->add('last_name', [
                 'rule1' => [
                     'rule' => ['minLength', 2],
-                    'message' => 'Last Name need to be at least 2 characters long',
+                    'message' => 'Numele trebuie sa aibe minim 2 caractere',
                 ],
                 'rule2' => [
                     'rule' => ['maxLength', 20],
-                    'message' => 'Last Name need to be maximum 20 characters long',
+                    'message' => 'Numele trebuie sa aibe maxim 20 de caractere',
                 ]
             ])
-            ->notBlank('password', 'Password is required')
+            ->notBlank('password', 'Parola este obligatorie')
             ->add('password', [
                 'rule1' => [
                     'rule' => ['minLength', 2],
-                    'message' => 'Password need to be at least 2 characters long',
+                    'message' => 'Parola trebuie sa aibe maxim 2 caractere',
                 ],
                 'rule2' => [
                     'rule' => ['maxLength', 20],
-                    'message' => 'Password need to be maximum 20 characters long',
+                    'message' => 'Parola trebuie sa aibe maxim 20 de caractere',
                 ]
             ])
             // ->allowEmpty('phone')
-            ->notBlank('phone', 'Phone is required')
-            ->notBlank('email', 'Email is required')
+            ->notBlank('phone', 'Numarul de telefon este obligatoriu')
+            ->notBlank('email', 'Emailul este olbigatoriu')
             ->add('email', [
                 'rule1' => [
                     'rule' => 'email',
-                    'message' => 'Please enter valid Email',
+                    'message' => 'Va rugam introduceti un email valid',
                 ],
                 'rule2' => [
                     'rule' => 'validateUnique',
                     'provider' => 'table',
-                    'message' => 'Email already in use',
+                    'message' => 'Emailul este deja folosit',
                 ]
             ])
             ->allowEmpty('uuid')

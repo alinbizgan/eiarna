@@ -45,12 +45,12 @@ class ProductsTable extends Table
             ->add('name', [
                 'rule1' => [
                     'rule' => 'notBlank',
-                    'message' => 'Please enter valid Name',
+                    'message' => 'Va rugam introduceti un nume valid',
                 ],
                 'rule2' => [
                     'rule' => 'validateUnique',
                     'provider' => 'table',
-                    'message' => 'Name already in use',
+                    'message' => 'Numele este deja folosit',
                 ]
             ]);
 
@@ -58,18 +58,18 @@ class ProductsTable extends Table
             ->add('slug', [
                 'rule1' => [
                     'rule' => 'notBlank',
-                    'message' => 'Please enter valid Slug',
+                    'message' => 'Va rugam introduceti un slug valid',
                 ],
                 'rule2' => [
                     'rule' => ['custom', '/^[a-z\-]{3,50}$/'],
-                    'message' => 'Only lowercase letters and dashes, between 3-50 characters',
+                    'message' => 'Doar litere mici si linute, cu un total de 3-50 caractere',
                     'allowEmpty' => false,
                     'required' => false,
                 ],
                 'rule3' => [
                     'rule' => 'validateUnique',
                     'provider' => 'table',
-                    'message' => 'Slug already in use',
+                    'message' => 'Slug deja folosit',
                 ]
             ]);
 
