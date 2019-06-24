@@ -40,7 +40,7 @@ class OrdersController extends AppController
             if (!$order->errors()) {
 
                 $order = $this->request->data;
-                $order['tax'] = sprintf('%01.2f', $shop['Order']['subtotal'] * 0.021);
+                $order['tax'] = sprintf('%01.2f', $shop['Order']['subtotal'] * 0.21);
                 
                 $order['total'] = $shop['Order']['subtotal'];
 
@@ -153,6 +153,8 @@ class OrdersController extends AppController
                     ->viewVars(['shop' => $shop, 'order' => $order])
                     ->send();
 
+                $this->request->session()->write('Shop.Order', $order);
+                    
                 return $this->redirect(['action' => 'success']);
             } else {
                 $this->Flash->error('Comanda nu a putut fi plasata, va rugam incercati din nou');
