@@ -1,44 +1,3 @@
-<script>
-
-$(document).ready(function() {
-
-    $('.category_id').editable({
-        type: 'select',
-        name: 'category_id',
-        url: '/admin/products/editable',
-        title: 'Category',
-        source: <?php echo json_encode($categories); ?>,
-        placement: 'right',
-    });
-
-    $('.name').editable({
-        type: 'text',
-        name: 'name',
-        url: '/admin/products/editable',
-        title: 'name',
-        placement: 'right',
-    });
-
-    $('.slug').editable({
-        type: 'text',
-        name: 'slug',
-        url: '/admin/products/editable',
-        title: 'slug',
-        placement: 'right',
-    });
-
-    $('.price').editable({
-        type: 'text',
-        name: 'price',
-        url: '/admin/products/editable',
-        title: 'price',
-        placement: 'left',
-    });
-
-});
-
-</script>
-
 <h3>Produse</h3>
 
 <?php echo $this->element('pagination'); ?>
@@ -53,6 +12,7 @@ $(document).ready(function() {
             <th><?= $this->Paginator->sort('slug') ?></th>
             <th><?= $this->Paginator->sort('image', 'Nume fisier poza') ?></th>
             <th><?= $this->Paginator->sort('price', 'Pret') ?></th>
+            <th><?= $this->Paginator->sort('quantity', 'Stoc (bucati)') ?></th>
             <th><?= $this->Paginator->sort('active', 'Activ') ?></th>
             <th class="actions">Actiuni</th>
         </tr>
@@ -67,6 +27,7 @@ $(document).ready(function() {
                 <td><span class="slug" data-value="<?php echo $product->slug; ?>" data-pk="<?php echo $product->id; ?>"><?php echo $product->slug; ?></span></td>
                 <td><?= h($product->image) ?></td>
                 <td><span class="price" data-value="<?php echo $product->price; ?>" data-pk="<?php echo $product->id; ?>"><?php echo $product->price; ?></span></td>
+                <td><?= h($product->quantity) ?></td>
                 <td><?php echo $this->Html->link($this->Html->image('icon_' . $product->active . '.png'), ['controller' => 'products', 'action' => 'toggle', 'active', $product->id], ['class' => 'toggle', 'escape' => false]); ?></td>
                 <td class="actions">
                     <?= $this->Html->link('Vizualizare', ['action' => 'view', $product->id], ['class' => 'btn btn-default btn-xs']); ?>

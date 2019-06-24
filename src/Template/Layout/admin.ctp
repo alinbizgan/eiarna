@@ -17,14 +17,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<!-- <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script> -->
 
 
 <?php echo $this->Html->script('bootstrap.bundle.min.js'); ?>
 <?php echo $this->Html->script('admin.js'); ?>
 
-<?php echo $this->Html->css('jquery-editable.css'); ?>
-<?php echo $this->Html->script('jquery-editable-poshytip.min.js'); ?>
 
 <?php echo $this->fetch('css'); ?>
 <?php echo $this->fetch('script'); ?>
@@ -57,7 +54,10 @@ $(document).ready(function() {
             <ul class="navbar-nav mr-auto">
 
 
-                <li class="nav-item"><?php echo $this->Html->link('Useri', ['controller' => 'users', 'action' => 'index'], ['class' => 'nav-link']); ?></li>
+
+                <?php if($authuser['role'] == 'admin') { ?>
+                    <li class="nav-item"><?php echo $this->Html->link('Useri', ['controller' => 'users', 'action' => 'index'], ['class' => 'nav-link']); ?></li>
+                <?php } ?>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Magazin</a>
@@ -65,6 +65,7 @@ $(document).ready(function() {
                         <?php echo $this->Html->link('Categorii', array('controller' => 'categories', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
                         <?php echo $this->Html->link('Produse', array('controller' => 'products', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
                         <?php echo $this->Html->link('Optiuni produse', array('controller' => 'productoptions', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
+                        <?php echo $this->Html->link('Asociere Produse', array('controller' => 'productcrosssale', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
                         <?php echo $this->Html->link('Comenzi', array('controller' => 'orders', 'action' => 'index'), ['class' => 'dropdown-item']); ?>
                     </div>
                 </li>

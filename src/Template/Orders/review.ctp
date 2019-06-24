@@ -110,7 +110,7 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
 	<?php echo $shop['Order']['shipping_city'];?>,  <?php echo $shop['Order']['shipping_county'];?> <?php echo $shop['Order']['shipping_zip'];?><br />
 	<br />
 <?php } else {?>
-Ridicare din magazin: Mihai Bravu 103, Bucuresti 021342
+    Ridicare din magazin: Mihai Bravu 103, Bucuresti 021342
 <?php }?>
 <br />
 <br />
@@ -125,7 +125,7 @@ Ridicare din magazin: Mihai Bravu 103, Bucuresti 021342
     <div class="col col-sm-4">
         <?php echo $this->Form->input('payment_method', [
             'label' => false,
-            'class' => 'form-control ccinput',
+            'class' => 'form-control',
             'options' => [
                 'cod' => 'Ramburs la curier',
                 'payment_order' => 'Ordin de Plata',

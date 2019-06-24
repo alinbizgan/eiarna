@@ -1,19 +1,3 @@
-<script>
-
-$(document).ready(function() {
-
-    $('.note').editable({
-        type: 'textarea',
-        name: 'note',
-        url: '/admin/orders/editable',
-        title: 'note',
-        placement: 'left',
-    });
-
-});
-
-</script>
-
 <h3>Comenzi</h3>
 
 <?php echo $this->element('pagination'); ?>
@@ -29,6 +13,7 @@ $(document).ready(function() {
             <th><?= $this->Paginator->sort('total', 'Total') ?></th>
             <th><?= $this->Paginator->sort('created', 'Creat') ?></th>
             <th><?= $this->Paginator->sort('note', 'Comentariu') ?></th>
+            <th><?= $this->Paginator->sort('status', 'Status') ?></th>
             <th class="actions"><?= __('Actiuni') ?></th>
         </tr>
     </thead>
@@ -43,9 +28,12 @@ $(document).ready(function() {
                 <td><?= h($order->total) ?> RON</td>
                 <td><?= h($order->created) ?></td>
                 <td><span class="note" data-value="<?php echo $order->note; ?>" data-pk="<?php echo $order->id; ?>"><?php echo $order->note; ?></span></td>
+                <td><?= h($order->status) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Vizualizare'), ['action' => 'view', $order->id], ['class' => 'btn btn-default btn-xs']); ?>
-                    <?= $this->Html->link(__('Modificare'), ['action' => 'edit', $order->id], ['class' => 'btn btn-default btn-xs']); ?>
+                    <?php if($order->status != 'ANULATA' && $order->status != 'LIVRATA') { ?>
+                        <?= $this->Html->link(__('Modificare'), ['action' => 'edit', $order->id], ['class' => 'btn btn-default btn-xs']); ?>
+                    <?php } ?>
                 </td>
             </tr>
         <?php endforeach; ?>

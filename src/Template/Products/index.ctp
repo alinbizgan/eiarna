@@ -5,9 +5,28 @@ $keywords = 'eIarna magazin online';
 $this->set(compact('title_for_layout', 'description', 'keywords'));
 ?>
 
-<h1>eIarna magazin online</h1>
+<div class="row">
+    <div class="col-6">
+        <h1>eIarna magazin online</h1>
+    </div>
+    <div class="col-6 pull-right">
+        <?php echo $this->Form->create(NULL, ['url' => ['controller' => 'products', 'action' => '/']]); ?>
+        <div class="row"><div class="col-sm-10">
+            <?php echo $this->Form->input('search', ['class' => 'form-control', 'label' => false]); ?>
+        </div>
+        <div class="col-sm-2">
+            <?php echo $this->Form->button('Cauta', ['class' => 'btn btn-primary']); ?>
+        </div></div>
+        <?php echo $this->Form->end(); ?>
+    </div>
+</div>
 
 <br />
+
+<?php if(isset($search)) { ?>
+    Rezultatele cautarii dupa: <b><?php echo htmlspecialchars($search); ?></b><br/>
+<?php } ?>
+
 <br />
 
 <div class="row">
@@ -33,7 +52,9 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
     </div>
 </div>
 
+<?php if(!isset($search)) { ?>
 <?php echo $this->element('pagination'); ?>
+<?php  } ?>
 
 <br />
 <br />

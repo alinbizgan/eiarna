@@ -15,8 +15,11 @@
 <?php echo $this->Html->css('bootstrap.min.css'); ?>
 <?php echo $this->Html->css('font-awesome.min.css'); ?>
 <?php echo $this->Html->css('css.css'); ?>
+<?php echo $this->Html->css('easyzoom.css'); ?>
 
 <?php echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'); ?>
+<?php echo $this->Html->script('easyzoom.js'); ?>
+
 <?php echo $this->Html->script('js.js'); ?>
 <?php echo $this->Html->script('bootstrap.bundle.min.js'); ?>
 
@@ -30,7 +33,7 @@
 
 	<nav class="navbar navbar-expand-md navbar-dark bg-primary">
         <div class="container">
-			<a class="navbar-brand" href="/eiarna"><img src="/eiarna/webroot/images/images.png" width="35" height="35" alt=""> eIarna magazin</a>
+			<a class="navbar-brand" href="/eiarna"><img src="/eiarna/webroot/images/images.png" width="35" height="35" alt=""> eIarna</a>
             <?php if (!isset($isLogin)) { ?>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

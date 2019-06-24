@@ -26,11 +26,11 @@ class UsersController extends AppController {
 
                 $this->Auth->setUser($user);
 
-                if ($user['role'] == 'user') {
+                if ($user['role'] == 'sales') {
                     return $this->redirect([
-                        'controller' => 'users',
+                        'controller' => 'products',
                         'action' => 'index',
-                        'prefix' => 'user',
+                        'prefix' => 'admin',
                     ]);
                 }
 

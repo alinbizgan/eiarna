@@ -26,16 +26,6 @@ class UsersController extends AppController {
         ]);
         $this->set(compact('user'));
 
-        // $logins = $this->Users->Logins->find('all', [
-        //     'conditions' => [
-        //         'Logins.user_id' => $user->id
-        //     ],
-        //     'order' => [
-        //         'Logins.created' => 'DESC'
-        //     ],
-        //     'limit' => 20,
-        // ]);
-        // $this->set(compact('logins'));
 
     }
 

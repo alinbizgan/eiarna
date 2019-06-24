@@ -1,55 +1,43 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $order->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Orders'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Orderproducts'), ['controller' => 'Orderproducts', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Orderproduct'), ['controller' => 'Orderproducts', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+<?= $this->Html->link(__('< Inapoi la comenzi'), ['action' => 'index'], ['class'=>'btn btn-default']) ?>
+<hr/>
+<h3>Modificare Comanda: #<?= h($order->id) ?></h3>
+
 <div class="orders form large-9 medium-8 columns content">
     <?= $this->Form->create($order) ?>
     <fieldset>
-        <legend><?= __('Modificare Comanda') ?></legend>
         <?php
-            echo $this->Form->input('first_name', 'Prenume');
-            echo $this->Form->input('last_name', 'Nume');
-            echo $this->Form->input('email', 'E-mail');
-            echo $this->Form->input('phone', 'Telefon');
-            echo $this->Form->input('billing_address', 'Adresa de Facturare');
-            echo $this->Form->input('billing_address2', 'Adresa de Facturare 2');
-            echo $this->Form->input('billing_city', 'Oras de Facturare');
-            echo $this->Form->input('billing_zip', 'Cod Postal de Facturare');
-            echo $this->Form->input('billing_county', 'Judet de Facturare');
-            echo $this->Form->input('shipping_address', 'Adresa de Livrare');
-            echo $this->Form->input('shipping_address2', 'Adresa de Livrare 2');
-            echo $this->Form->input('shipping_city', 'Oras de Livrare');
-            echo $this->Form->input('shipping_zip', 'Cod Postal de Livrare');
-            echo $this->Form->input('shipping_county', 'Judet de Livrare');
-            echo $this->Form->input('weight', 'Greutate');
-            echo $this->Form->input('order_item_count', 'Numar de produse in comanda');
-            echo $this->Form->input('subtotal', 'Subtotal');
-            echo $this->Form->input('tax', 'TVA');
-            echo $this->Form->input('shipping', 'Livrare');
-            echo $this->Form->input('total', 'Total');
-            echo $this->Form->input('shipping_method', 'Metoda de Livrare');
-            echo $this->Form->input('payment_method', 'Metoda de Plata');
-            echo $this->Form->input('creditcard_number', 'Numar Card de Credit');
-            echo $this->Form->input('creditcard_code', 'Cod CVC');
-            echo $this->Form->input('creditcard_year', 'An expirare Card de Credit');
-            echo $this->Form->input('creditcard_month', 'Luna expirare Card de Credit');
-            echo $this->Form->input('authorization', 'Autorizatie');
-            echo $this->Form->input('transaction', 'Tranzactie');
-            echo $this->Form->input('status', 'Stare');
-            echo $this->Form->input('ip_address', 'Adresa IP');
-            echo $this->Form->input('note', 'Nota');
+            echo $this->Form->input('first_name', ['class' => 'form-control', 'label' => 'Prenume']);
+            echo $this->Form->input('last_name', ['class' => 'form-control', 'label' => 'Nume']);
+            echo $this->Form->input('email', ['class' => 'form-control', 'label' => 'E-mail']);
+            echo $this->Form->input('phone', ['class' => 'form-control', 'label' => 'Telefon']);
+            echo $this->Form->input('billing_address', ['class' => 'form-control', 'label' => 'Adresa de Facturare']);
+            echo $this->Form->input('billing_address2', ['class' => 'form-control', 'label' => 'Adresa de Facturare 2']);
+            echo $this->Form->input('billing_city', ['class' => 'form-control', 'label' => 'Oras de Facturare']);
+            echo $this->Form->input('billing_zip', ['class' => 'form-control', 'label' => 'Cod Postal de Facturare']);
+            echo $this->Form->input('billing_county', ['class' => 'form-control', 'label' => 'Judet de Facturare']);
+            echo $this->Form->input('shipping_address', ['class' => 'form-control', 'label' => 'Adresa de Livrare']);
+            echo $this->Form->input('shipping_address2', ['class' => 'form-control', 'label' => 'Adresa de Livrare 2']);
+            echo $this->Form->input('shipping_city', ['class' => 'form-control', 'label' => 'Oras de Livrare']);
+            echo $this->Form->input('shipping_zip', ['class' => 'form-control', 'label' => 'Cod Postal de Livrare']);
+            echo $this->Form->input('shipping_county', ['class' => 'form-control', 'label' => 'Judet de Livrare']);
+            echo $this->Form->input('shipping', ['class' => 'form-control', 'label' => 'Livrare']);
+            echo $this->Form->input('shipping_method', ['label' => 'Metoda de livrare', 'class' => 'form-control', 'id' => 'shipping_method',
+                'options' => ['quote' => 'Livrare la adresa', 'pickup' => 'Ridica comanda din magazin']
+            ]);
+
+            echo $this->Form->input('payment_method', [
+                        'label' => 'Metoda de Plata',
+                        'class' => 'form-control',
+                        'options' => [
+                            'cod' => 'Ramburs la curier',
+                            'payment_order' => 'Ordin de Plata',
+                            'paypal' => 'PayPal'
+                        ]
+                    ]);
+            echo $this->Form->input('note', ['class' => 'form-control', 'label' => 'Nota']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Modifica')) ?>
+    <br/>
+    <?= $this->Form->button(__('Modifica'), ['class' => 'btn btn-info']) ?>
     <?= $this->Form->end() ?>
 </div>

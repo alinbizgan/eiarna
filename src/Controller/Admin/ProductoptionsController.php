@@ -64,6 +64,7 @@ class ProductoptionsController extends AppController
         $productoption = $this->Productoptions->newEntity();
         if ($this->request->is('post')) {
             $productoption = $this->Productoptions->patchEntity($productoption, $this->request->data);
+
             if ($this->Productoptions->save($productoption)) {
                 $this->Flash->success('Optiunea de produs a fost salvata');
                 return $this->redirect(['action' => 'index']);
@@ -85,6 +86,7 @@ class ProductoptionsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $productoption = $this->Productoptions->patchEntity($productoption, $this->request->data);
+
             if ($this->Productoptions->save($productoption)) {
                 $this->Flash->success('Optiunea de produs a fost salvata.');
                 return $this->redirect(['action' => 'index']);

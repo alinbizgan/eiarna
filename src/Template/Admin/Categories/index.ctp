@@ -1,20 +1,4 @@
-<script>
-
-$(document).ready(function() {
-
-    $('.name').editable({
-        type: 'text',
-        name: 'name',
-        url: '/admin/categories/editable',
-        title: 'Name',
-        placement: 'right',
-    });
-
-});
-
-</script>
-
-<h3>Categorii</h3>
+<h3>Categorii Produse</h3>
 
 <?php echo $this->element('pagination'); ?>
 

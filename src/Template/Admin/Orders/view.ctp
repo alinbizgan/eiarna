@@ -1,4 +1,6 @@
-<h3>Comanda: <?= h($order->id) ?></h3>
+<?= $this->Html->link(__('< Inapoi la comenzi'), ['action' => 'index'], ['class'=>'btn btn-default']) ?>
+<hr/>
+<h3>Detalii Comanda: #<?= h($order->id) ?></h3>
 
 <table class="table-striped table-bordered table-condensed table-hover">
     <tr>
@@ -110,6 +112,10 @@
         <td><?= $order->note ?></td>
     </tr>
     <tr>
+        <th><?= __('Status') ?></th>
+            <td><?= $order->status ?></td>
+    </tr>
+    <tr>
         <th><?= __('Creat') ?></th>
         <td><?= h($order->created) ?></td>
     </tr>
@@ -122,13 +128,19 @@
 <br />
 <br />
 
-<h3><?= __('Actiuni') ?></h3>
-<?= $this->Html->link(__('Modificare Comanda'), ['action' => 'edit', $order->id], ['class' => 'btn btn-default']); ?>
-    <?= $this->Form->postLink(__('Stergere Comanda'), ['action' => 'delete', $order->id], ['class' => 'btn btn-danger', 'confirm' => __('Sunteti sigur(a) ca vreti sa stergeti comanda # {0}?', $order->id)]) ?>
+<?php if($order->status != 'ANULATA' && $order->status != 'LIVRATA' ) { ?>
+    <h3><?= __('Actiuni') ?></h3>
+    <?= $this->Html->link(__('Modificare Comanda'), ['action' => 'edit', $order->id], ['class' => 'btn btn-info']); ?>
+        <?= $this->Form->postLink(__('Anulare Comanda'), ['action' => 'cancel', $order->id], ['class' => 'btn btn-danger', 'confirm' => __('Sunteti sigur(a) ca vreti sa anulati comanda #{0}?', $order->id)]) ?>
+        <?= $this->Form->postLink(__('Marcare Comanda Livrata'), ['action' => 'delivered', $order->id], ['class' => 'btn btn-success', 'confirm' => __('Sunteti sigur(a) ca doriti sa marcati ca livrata comanda #{0}?', $order->id)]) ?>
+<?php } else if($order->status == 'ANULATA') { ?>
+    <h2 style="color: red"><i>ACEASTA COMANDA A FOST ANULATA</i></h2>
+<?php } else if($order->status == 'LIVRATA') {  ?>
+    <h2 style="color: green"><i>ACEASTA COMANDA A FOST LIVRATA</i></h2>
+<?php }  ?>
 
 <br />
 <br />
-
 <h4><?= __('Produse in Comanda') ?></h4>
 <?php if (!empty($order->orderproducts)): ?>
     <table class="table-striped table-bordered table-condensed table-hover">
@@ -145,7 +157,7 @@
             <th><?= __('Subtotal') ?></th>
             <th><?= __('Nota') ?></th>
             <th><?= __('Creat') ?></th>
-            <th class="actions">Actiuni</th>
+
         </tr>
         <?php foreach ($order->orderproducts as $orderproducts): ?>
             <tr>
@@ -161,11 +173,7 @@
                 <td><?= number_format($orderproducts->subtotal, 2) ?></td>
                 <td><?= h($orderproducts->note) ?></td>
                 <td><?= h($orderproducts->created) ?></td>
-                <td class="actions">
-                    <?php echo $this->Html->link(__('Vizualizare'), ['controller' => 'Orderproducts', 'action' => 'view', $orderproducts->id], ['class' => 'btn btn-default btn-xs']); ?>
-                    <?php echo $this->Html->link(__('Modificare'), ['controller' => 'Orderproducts', 'action' => 'edit', $orderproducts->id], ['class' => 'btn btn-default btn-xs']); ?>
-                    <?php // echo $this->Form->postLink(__('Delete'), ['controller' => 'Orderproducts', 'action' => 'delete', $orderproducts->id], ['confirm' => __('Are you sure you want to delete # {0}?', $orderproducts->id)]) ?>
-                </td>
+
             </tr>
         <?php endforeach; ?>
     </table>

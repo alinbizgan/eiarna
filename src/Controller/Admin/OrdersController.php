@@ -7,6 +7,13 @@ class OrdersController extends AppController
 {
 
 
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadModel('Products');
+        $this->loadModel('Orderproducts');
+    }
+
 ////////////////////////////////////////////////////////////////////////////////
 
     public function index()
@@ -59,6 +66,7 @@ class OrdersController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $order = $this->Orders->patchEntity($order, $this->request->data);
+            $order->status = 'EDITATA';
             if ($this->Orders->save($order)) {
                 $this->Flash->success(__('Comanda a fost salvata.'));
                 return $this->redirect(['action' => 'index']);
@@ -72,18 +80,48 @@ class OrdersController extends AppController
 
 ////////////////////////////////////////////////////////////////////////////////
 
-    public function delete($id = null)
+    public function cancel($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $order = $this->Orders->get($id);
-        if ($this->Orders->delete($order)) {
-            $this->Flash->success(__('Comanda a fost stearsa.'));
+        $order->status = 'ANULATA';
+
+        //add back the stocks
+        $orderproducts = $this->Orderproducts->find('all',['conditions' => ['order_id' => $id]]);
+        foreach ($orderproducts as $orderproduct) { 
+            $product = $this->Products->get($orderproduct['product_id']);
+            $stockquantity = $product->quantity; 
+            $newquantity = $stockquantity + $orderproduct['quantity']; 
+            $product->quantity = $newquantity;
+            if(!$this->Products->save($product)) {
+                $this->Flash->error(__('Comanda nu a putut fi anulata. A avut loc o eroare la actualizarea stocurilor.'));
+            }
+        }
+
+        if ($this->Orders->save($order)) {
+
+
+
+
+            $this->Flash->success(__('Comanda a fost anulata.'));
         } else {
-            $this->Flash->error(__('Comanda nu a putut fi stearsa. Va rugam incercati din nou.'));
+            $this->Flash->error(__('Comanda nu a putut fi anulata. Va rugam incercati din nou.'));
         }
         return $this->redirect(['action' => 'index']);
     }
 
 ////////////////////////////////////////////////////////////////////////////////
 
+    public function delivered($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $order = $this->Orders->get($id);
+        $order->status = 'LIVRATA';
+        if ($this->Orders->save($order)) {
+            $this->Flash->success(__('Comanda a fost marcata ca livrata.'));
+        } else {
+            $this->Flash->error(__('Comanda nu a putut fi marcata ca livrata. Va rugam incercati din nou.'));
+        }
+        return $this->redirect(['action' => 'index']);
+    }
 }

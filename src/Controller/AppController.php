@@ -51,21 +51,17 @@ class AppController extends Controller {
     public function beforeFilter(Event $event)
     {
 
-        // if (in_array($this->request->params['action'], $this->secureActions) && !isset($_SERVER['HTTPS'])) {
-        //     $this->protocol('https');
-        // }
-
-        // if (!in_array($this->request->params['action'], $this->secureActions) && isset($_SERVER['HTTPS'])) {
-        //     $this->protocol('http');
-        // }
-
         $authuser = $this->Auth->user();
+        if($this->request->controller == 'Users' && $authuser['role'] == 'sales' && $this->request->action != 'login'
+            && $this->request->action != 'logout') {
+            die('Nu aveti dreptul de a accesa administrarea Utilizatorilor din sistem');
+        }
+
+
         $this->set(compact('authuser'));
         
         if(isset($this->request->params['prefix']) && ($this->request->params['prefix'] == 'admin')) {
             $this->viewBuilder()->layout('admin');
-        } elseif(isset($this->request->params['prefix']) && ($this->request->params['prefix'] == 'user')) {
-            $this->viewBuilder()->layout('user');
         } else {
             $this->Auth->allow();
             if(!$this->request->session()->check('referer')) {
@@ -99,14 +95,11 @@ class AppController extends Controller {
 
     public function isAuthorized($user)
     {
-        if (($this->request->params['prefix'] === 'admin') && ($user['role'] != 'admin')) {
+        if (($this->request->params['prefix'] === 'admin') && ($user['role'] != 'admin' && $user['role'] != 'sales')) {
             echo '<a href="/users/logout">Logout</a><br />';
             die('Invalid request for '. $user['role'] . ' user.');
         }
-        if (($this->request->params['prefix'] === 'user') && ($user['role'] != 'user')) {
-            echo '<a href="/users/logout">Logout</a><br />';
-            die('Invalid request for '. $user['role'] . ' user.');
-        }
+
         return true;
     }
 

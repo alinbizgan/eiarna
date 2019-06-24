@@ -82,14 +82,11 @@ textarea {
     padding: 1px !important;
 }
 
-td {
-    padding: 2px !important;
-}
-
 .btn-default {
     color: #000;
     background-color: #DDD;
     border-color: #DDD;
+    margin: 2px;
 }
 
 .btn-group-xs>.btn, .btn-xs {
@@ -217,4 +214,13 @@ td {
 
 .cookie_visit_10 {
     background-color: #1a1aff;
+}
+.table-bordered {
+    margin-bottom: 20px;
+}
+.table-bordered td, .table-bordered th {
+    padding: 10px;
+}
+th.actions {
+    text-align: center;
 }

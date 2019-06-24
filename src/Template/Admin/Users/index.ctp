@@ -1,76 +1,4 @@
-<script>
-
-$(document).ready(function() {
-
-    $('.first_name').editable({
-        type: 'text',
-        name: 'first_name',
-        url: '/admin/users/editable',
-        title: 'First Name',
-        placement: 'right',
-    });
-
-    $('.last_name').editable({
-        type: 'text',
-        name: 'last_name',
-        url: '/admin/users/editable',
-        title: 'Last Name',
-        placement: 'right',
-    });
-
-    $('.domain').editable({
-        type: 'text',
-        name: 'domain',
-        url: '/admin/users/editable',
-        title: 'domain',
-        placement: 'right',
-    });
-
-    $('.first_name').editable({
-        type: 'text',
-        name: 'first_name',
-        url: '/admin/users/editable',
-        title: 'First Name',
-        placement: 'right',
-    });
-
-    $('.last_name').editable({
-        type: 'text',
-        name: 'last_name',
-        url: '/admin/users/editable',
-        title: 'Last Name',
-        placement: 'right',
-    });
-
-    $('.email1').editable({
-        type: 'text',
-        name: 'email',
-        url: '/admin/users/editable',
-        title: 'Email',
-        placement: 'right',
-    });
-
-    $('.phone').editable({
-        type: 'text',
-        name: 'phone',
-        url: '/admin/users/editable',
-        title: 'Phone',
-        placement: 'right',
-    });
-
-    $('.notes').editable({
-        type: 'textarea',
-        name: 'notes',
-        url: '/admin/users/editable',
-        title: 'Notes',
-        placement: 'left',
-    });
-
-});
-
-</script>
-
-<h2>Users</h2>
+<h2>Utilizatori Sistem</h2>
 
 <table class="table-striped table-bordered table-condensed table-hover table-sm">
     <tr>
@@ -90,7 +18,7 @@ $(document).ready(function() {
     <?php foreach ($users as $user): ?>
     <tr>
         <td><?php echo h($user->id); ?></td>
-        <td><?php echo h($user->role); ?></td>
+        <td><?php echo h($user->role) == 'admin'?'Administrator':'Reprezentant vanzari'; ?></td>
         <td>
             <span class="first_name" data-value="<?php echo $user->first_name; ?>" data-pk="<?php echo $user->id; ?>"><?php echo $user->first_name; ?></span><br />
         </td>

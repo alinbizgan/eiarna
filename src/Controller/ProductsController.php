@@ -12,6 +12,7 @@ class ProductsController extends AppController
     {
         parent::initialize();
         $this->loadComponent('Cart');
+
     }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -39,18 +40,38 @@ class ProductsController extends AppController
 
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Categories'],
-            'order' => [
-                'Products.name' => 'ASC',
-            ],
-            'conditions' => [
-                'Products.active' => 1,
-            ],
-            'limit' => 12
-        ];
-        $products = $this->paginate($this->Products);
-        $this->set(compact('products'));
+        if(isset($this->request->data['search'])) {
+            $search = $this->request->data['search'];
+        }
+
+        if(isset($search)) {
+            $this->paginate = [
+                'contain' => ['Categories'],
+                'order' => [
+                    'Products.name' => 'ASC',
+                ],
+                'conditions' => [
+                    'Products.active' => 1,
+                    'Products.name LIKE'=>'%'.$search.'%'
+                ]
+            ];
+            $products = $this->paginate($this->Products);
+            $this->set(compact('products'));
+            $this->set('search', $search);
+        } else {
+            $this->paginate = [
+                'contain' => ['Categories'],
+                'order' => [
+                    'Products.name' => 'ASC',
+                ],
+                'conditions' => [
+                    'Products.active' => 1,
+                ],
+                'limit' => 12
+            ];
+            $products = $this->paginate($this->Products);
+            $this->set(compact('products'));
+        }
     }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -89,10 +110,29 @@ class ProductsController extends AppController
         foreach($productoptions as $productoption):
             $price = sprintf('%01.2f', $productoption->price);
             $productoption->newprice = (float) $price;
-            $productoptionlists[$productoption->id] = $productoption->name . ' - ' . '$' . $price;
+            $productoptionlists[$productoption->id] = $productoption->name . ' - ' . $price . ' RON';
         endforeach;
 
-        $this->set(compact('product', 'productoptions', 'productoptionlists'));
+
+        $productcrosssales = $this->Products->Productcrosssale->find('all', [
+            'fields' => [
+                'id',
+                'base_product_id',
+                'cross_sale_product_id'
+            ],
+            'conditions' => [
+                'Productcrosssale.base_product_id' => $product->id
+            ]
+        ])->all();
+
+        $productcrosssalelist = array();
+        foreach($productcrosssales as $productcrosssale):
+            $product1 = $this->Products->get($productcrosssale->cross_sale_product_id);
+
+            array_push($productcrosssalelist,$product1);
+        endforeach;
+
+        $this->set(compact('product', 'productoptions', 'productoptionlists','productcrosssalelist'));
     }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -3,7 +3,11 @@
 <div class="row">
     <div class="col-sm-5">
         <?= $this->Form->create($user) ?>
-        <?php echo $this->Form->input('role', ['class' => 'form-control', 'label' => 'Rol']); ?>
+        <?php
+                    echo $this->Form->input('role', ['label' => 'Rol', 'class' => 'form-control', 'id' => 'role',
+                            'options' => ['admin' => 'Administrator', 'sales' => 'Reprezentant Vanzari']
+                        ]);
+                     ?>
         <br />
         <?php echo $this->Form->input('first_name', ['class' => 'form-control', 'label' => 'Prenume']); ?>
         <br />

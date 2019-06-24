@@ -92,6 +92,11 @@ class CartComponent extends Component
 
         }
 
+        $product_already_added = $this->request->session()->read('Shop.Orderproducts.' . $id . '_' . $productoptionId);
+        if(isset($product_already_added)) {
+            $quantity = $quantity + $product_already_added['quantity'];
+        }
+
         $data = [
             'product_id' => $product->id,
             'name' => $product->name,

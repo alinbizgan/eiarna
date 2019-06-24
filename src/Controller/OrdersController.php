@@ -17,6 +17,7 @@ class OrdersController extends AppController
         parent::initialize();
         $this->shipping_array = array("B" => 0, "GR" => 1, "CL" => 1, "IL" => 1, "PH" => 1, "DB" => 1, "TR" => 2, "AG" => 2, "BV" => 2, "CV" => 2, "GR" => 2, "BZ" => 2, "BR" => 2, "CT" => 2, "TL" => 3, "GL" => 3, "VN" => 3, "BC" => 3, "HR" => 3, "GR" => 3, "MS" => 3, "SB" => 3, "VL" => 3, "OT" => 3, "DJ" => 4, "GJ" => 4, "HD" => 4, "AB" => 4, "CJ" => 4, "BN" => 4, "SV" => 4, "NT" => 4, "VS" => 4, "IS" => 5, "BT" => 5, "MM" => 5, "SJ" => 5, "BH" => 5, "AR" => 5, "TM" => 5, "CS" => 5, "MH" => 5, "SM" => 6);
         $this->loadComponent('Cart');
+        $this->loadModel('Products');
     }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -30,6 +31,9 @@ class OrdersController extends AppController
         }
 
         $order = $this->Orders->newEntity();
+        $shop['Order']['status'] = 'CREATA';
+
+
         if ($this->request->is('post')) {
             $order = $this->Orders->patchEntity($order, $this->request->data);
             
@@ -39,13 +43,14 @@ class OrdersController extends AppController
                 $order['tax'] = sprintf('%01.2f', $shop['Order']['subtotal'] * 0.021);
                 
                 $order['total'] = $shop['Order']['subtotal'];
-                if($shop['Order']['shipping_method'] == 'quote') {
+
+                if($order['shipping_method'] == 'quote') {
                     
-                    $shippingCounty = $shop['Order']['shipping_county'];
+                    $shippingCounty = $order['shipping_county'];
                     $order['shipping'] = sprintf('%01.2f', $this->shipping_array[$shippingCounty] * $this->SHIPPING_COEF);
                     $order['total'] = sprintf('%01.2f', $shop['Order']['subtotal'] + $order['tax'] + $order['shipping']);
                 } else {
-                    $order['total'] = $shop['Order']['subtotal'];
+                    $order['total'] = $shop['Order']['subtotal'] + $order['tax'];
                 }
 
                 $this->request->session()->write('Shop.Order', $order + $shop['Order']);
@@ -86,7 +91,20 @@ class OrdersController extends AppController
             if($order->payment_method == 'paypal') {
                 return $this->redirect('https://sandbox.paypal.com/cgi-bin/webscr?cmd=_view-a-trans&id=XXXXXX');
             }
-            
+
+            //check stocks!
+            foreach ($shop['Orderproducts'] as $orderproduct) {
+                $product = $this->Products->get($orderproduct['product_id']);
+
+                if($product->quantity < $orderproduct['quantity']) {
+                    $this->Flash->error('Comanda nu a putut fi plasata, produsul '.$orderproduct['name'].' nu mai este in stoc..');
+                    return;
+                }
+            }
+
+
+
+            $order->status = 'PLASATA';
             $ordersave = $this->Orders->save($order);
 
             if ($ordersave) {
@@ -96,6 +114,19 @@ class OrdersController extends AppController
                 foreach ($orderproducts as $orderproduct) {
                     $orderproduct['order_id'] = $ordersave->id;
                     $this->Orders->Orderproducts->save($orderproduct);
+
+                    //substract the stock for the current product!
+                    $product = $this->Products->get($orderproduct['product_id']);
+                    $stockquantity = $product->quantity;
+                    $newquantity = $stockquantity - $orderproduct['quantity'];
+                    if($newquantity < 0 ) {
+                        $this->Flash->error('Comanda nu a putut fi plasata, produsul '.$orderproduct->name.' nu mai este in stoc..');
+                        return;
+                    }
+                    $product->quantity = $newquantity;
+                    $this->Products->save($product);
+
+
                 }
 
                 $email = new Email();

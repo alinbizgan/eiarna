@@ -31,6 +31,13 @@ class ProductsTable extends Table
         $this->hasMany('Productoptions', [
             'foreignKey' => 'product_id'
         ]);
+
+        $this->hasMany('Productcrosssale', [
+            'foreignKey' => 'base_product_id'
+        ]);
+
+
+
     }
 
 ////////////////////////////////////////////////////////////////////////////////

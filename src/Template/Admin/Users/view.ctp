@@ -1,4 +1,5 @@
-<h2>User</h2>
+<h2>Vizualizare Utilizator: <?php echo h($user->first_name); ?> <?php echo h($user->last_name); ?></h2>
+<hr/>
 
 <table class="table-striped table-bordered table-condensed table-hover table-sm">
     <tr>
@@ -7,7 +8,7 @@
     </tr>
     <tr>
         <td>Rol</td>
-        <td><?php echo h($user->role); ?></td>
+        <td><?php echo h($user->role)== 'admin'?'Administrator':'Reprezentant vanzari'; ?></td>
     </tr>
     <tr>
         <td>Prenume</td>
@@ -41,42 +42,6 @@
         <td>Modificat</td>
         <td><?php echo h($user->modified); ?></td>
     </tr>
-</table>
-
-<br />
-<br />
-
-<h3>Logari</h3>
-
-<table class="table-striped table-bordered table-condensed table-hover">
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>user_id</th>
-            <th>ip_address</th>
-            <th>remote_host</th>
-            <th>http_user_agent</th>
-            <th>created</th>
-            <!-- <th class="actions">Actions</th> -->
-        </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($logins as $login): ?>
-        <tr>
-            <td><?= $this->Number->format($login->id) ?></td>
-            <td><?= $login->user_id ?></td>
-            <td><?= h($login->ip_address) ?></td>
-            <td><?= h($login->remote_host) ?></td>
-            <td><?= h($login->http_user_agent) ?></td>
-            <td><?= h($login->created) ?></td>
-            <td class="actions">
-                <?php //echo $this->Html->link(__('View'), ['action' => 'view', $login->id]) ?>
-                <?php // echo $this->Html->link(__('Edit'), ['action' => 'edit', $login->id]) ?>
-                <?php // echo $this->Form->postLink(__('Delete'), ['action' => 'delete', $login->id], ['confirm' => __('Are you sure you want to delete # {0}?', $login->id)]); ?>
-            </td>
-        </tr>
-    <?php endforeach; ?>
-    </tbody>
 </table>
 
 <br />
