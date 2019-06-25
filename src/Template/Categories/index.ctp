@@ -12,7 +12,7 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
         <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="card card-default">
                 <div class="card-body">
-                    <?php echo $this->Html->image('webroot/images/categories/' . $category->slug . '.jpg', ['fullBase' => true, 'url' => ['controller' => 'categories', 'action' => 'view', $category->slug, '_full' => true], 'alt' => $category->name, 'class' => 'img-responsive shopimage']); ?>
+                    <?php echo $this->Html->image('/webroot/images/categories/' . $category->slug . '.jpg', ['fullBase' => true, 'url' => ['controller' => 'categories', 'action' => 'view', $category->slug, '_full' => true], 'alt' => $category->name, 'class' => 'img-responsive shopimage']); ?>
 
                 </div>
                 <div class="card-footer">
