@@ -5,8 +5,8 @@ $keywords = $category->name;
 $this->set(compact('title_for_layout', 'description', 'keywords'));
 ?>
 
-<?php $this->Html->addCrumb('Shop', ['controller' => 'products', 'action' => 'index', '_full' => true]); ?>
-<?php $this->Html->addCrumb('Categories', ['controller' => 'categories', 'action' => 'index', '_full' => true]); ?>
+<?php $this->Html->addCrumb('Acasa', ['controller' => 'products', 'action' => 'index', '_full' => true]); ?>
+<?php $this->Html->addCrumb('Categorii', ['controller' => 'categories', 'action' => 'index', '_full' => true]); ?>
 <?php $this->Html->addCrumb($category->name, ['controller' => 'categories', 'action' => 'view', $category->slug, '_full' => true]); ?>
 
 <br />

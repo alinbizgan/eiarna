@@ -132,7 +132,18 @@ class ProductsController extends AppController
             array_push($productcrosssalelist,$product1);
         endforeach;
 
-        $this->set(compact('product', 'productoptions', 'productoptionlists','productcrosssalelist'));
+
+        $productrating = $this->Products->Productrating->find('all', [
+            'conditions' => [
+                'Productrating.product_id' => $product->id
+            ],
+            'order' => [
+                'rating DESC'
+
+            ]
+        ])->all();
+
+        $this->set(compact('product', 'productoptions', 'productoptionlists','productcrosssalelist','productrating'));
     }
 
 ////////////////////////////////////////////////////////////////////////////////

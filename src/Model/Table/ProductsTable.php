@@ -36,6 +36,10 @@ class ProductsTable extends Table
             'foreignKey' => 'base_product_id'
         ]);
 
+        $this->hasMany('Productrating', [
+            'foreignKey' => 'product_id'
+        ]);
+
 
 
     }

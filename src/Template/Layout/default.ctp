@@ -16,9 +16,11 @@
 <?php echo $this->Html->css('font-awesome.min.css'); ?>
 <?php echo $this->Html->css('css.css'); ?>
 <?php echo $this->Html->css('easyzoom.css'); ?>
+<?php echo $this->Html->css('jquery.rateyo.min.css'); ?>
 
 <?php echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'); ?>
 <?php echo $this->Html->script('easyzoom.js'); ?>
+<?php echo $this->Html->script('jquery.rateyo.min.js'); ?>
 
 <?php echo $this->Html->script('js.js'); ?>
 <?php echo $this->Html->script('bootstrap.bundle.min.js'); ?>

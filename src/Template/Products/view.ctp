@@ -27,10 +27,20 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
             <br />
             <br />
 
-            <small>Categorie: <?php echo $this->Html->link($product->category->name, ['controller' => 'categories',  'action' => 'view', $product->category->slug]); ?></small>
-			<br />
+            <div class="row">
+                <div class="col-md-6">
+                    Rating Produs: <div id="rateYoProductRating"></div>
+                    <?php echo $this->Form->input('productrating', ['type' => 'hidden', 'value' => $product->average_rating]); ?>
+                    <small>Nota: <?php echo $product->average_rating ?> din <?php echo $product->average_rating_count ?> recenzii</small>
+                </div>
+                <div class="col-md-6">
+                    <small>Categorie: <?php echo $this->Html->link($product->category->name, ['controller' => 'categories',  'action' => 'view', $product->category->slug]); ?></small>
+                    <br />
 
-		    <small>Greutate: <?php echo $product->weight; ?> kg</small>
+                    <small>Greutate: <?php echo $product->weight; ?> kg</small>
+                </div>
+            </div>
+
 
             <br />
             <br />
@@ -39,8 +49,6 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
 
             <?php echo $this->Form->create(NULL, ['url' => ['controller' => 'products', 'action' => 'add']]); ?>
             <?php echo $this->Form->input('id', ['type' => 'hidden', 'value' => $product->id]); ?>
-
-            <?php // print_r($productoptions); ?>
 
             <?php if(!empty($productoptionlists)): ?>
                 <div class="row">
@@ -80,22 +88,75 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Descriere</a>
+                <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Descriere</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Recenzii</a>
+                <a class="nav-link" id="rating-tab" data-toggle="tab" href="#rating" role="tab" aria-controls="rating" aria-selected="false">Recenzii</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Produse asemanatoare</a>
+                <a class="nav-link" id="crosssale-tab" data-toggle="tab" href="#crosssale" role="tab" aria-controls="crosssale" aria-selected="false">Produse asemanatoare</a>
               </li>
             </ul>
             <br/>
             <div class="tab-content" id="myTabContent" style="padding:10px;">
-              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
                 <p itemprop="description" style="text-align: justify"><?php echo $product->description; ?></p>
               </div>
-              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+              <div class="tab-pane fade" id="rating" role="tabpanel" aria-labelledby="rating-tab">
+                    <?php echo $this->Form->create(NULL, ['url' => ['controller' => 'productrating', 'action' => 'add']]); ?>
+                        <?php echo $this->Form->input('product_id', ['type' => 'hidden', 'value' => $product->id]); ?>
+                        <div class="container">
+                            <div class="row">
+                                <?php $i = 0; foreach ($productrating as $rating): $i++;?>
+                                    <div class="col-md-12">
+                                        <div class="row border m-2 p-2 ">
+                                            <div class="col-sm-8">
+                                                <?php echo $rating->name; ?> - <small><?php echo $rating->created->format('d/m/Y'); ?></small>
+                                            </div>
+                                            <div class="col-sm-4 pull-right">
+                                                <div id="field-rating<?php echo $i; ?>"></div>
+                                                <?php echo $this->Form->input('rating', ['type' => 'hidden', 'id' => 'rating'.$i, 'value' =>  $rating->rating]); ?>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <small><?php echo $rating->description; ?></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+
+                            <div class="row border m-2 p-3 ">
+                                <div class="col-sm-12 mb-4">
+                                    <b>Adaugati recenzie</b>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p>Nume</p>
+                                </div>
+                                <div class="col-sm-8">
+                                    <?php echo $this->Form->input('name', ['required' => true, 'class' => 'form-control', 'label' => false]); ?>
+                                </div>
+                                <div class="col-sm-4 p-2">
+                                    <p>Nota produs</p>
+                                </div>
+                                <div class="col-sm-8 p-2">
+                                    <div id="rateYoAddRating"></div>
+                                    <?php echo $this->Form->input('rating', ['type' => 'hidden', 'id' => 'rating', 'value' => '0']); ?>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p>Descriere Recenzie</p>
+                                </div>
+                                <div class="col-sm-8">
+                                    <?php echo $this->Form->input('description', ['required' => true, 'class' => 'form-control', 'label' => false, 'rows' => 3]); ?>
+                                </div>
+                                <div class="col-sm-12 pull-right pt-4">
+                                    <?php echo $this->Form->button('Adauga Recenzie', ['class' => 'btn btn-primary']); ?>
+                                </div>
+                            </div>
+
+                        </div>
+                    <?php echo $this->Form->end(); ?>
+              </div>
+              <div class="tab-pane fade" id="crosssale" role="tabpanel" aria-labelledby="crosssale-tab">
                 <div class="row">
                     <?php foreach ($productcrosssalelist as $product): ?>
                     <div class="col-4">
