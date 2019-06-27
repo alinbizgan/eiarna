@@ -34,16 +34,16 @@ $this->set(compact('title_for_layout', 'description', 'keywords'));
         <div class="row">
         <?php foreach ($products as $product): ?>
         <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-            <div class="card">
-                <div class="card-body">
+            <div class="card" style="height: 295px">
+                <div class="card-body h-50">
                     <?php echo $this->Html->image('/images/small/' . $product->image, ['fullBase' => true, 'url' => ['action' => 'view', $product->slug, '_full' => true], 'alt' => $product->name, 'class' => 'img-fluid shopimage1']); ?>
-
                 </div>
-                <div class="card-footer shopfooter1">
+                <div class="card-footer shopfooter1 h-50">
                     <?php echo $this->Html->link($product->name, ['action' => 'view', $product->slug, '_full' => true]); ?>
 
                     <br />
                 </div>
+               
             </div>
             <br />
         </div>
